@@ -1,5 +1,18 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
+import { useReveal } from '~/composables/useReveal'
+
+useReveal()
+
+const handleMouseMove = (e: MouseEvent) => {
+  const card = e.currentTarget as HTMLElement
+  if (!card) return
+  const rect = card.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  card.style.setProperty('--mouse-x', `${x}px`)
+  card.style.setProperty('--mouse-y', `${y}px`)
+}
 
 // Form state interfaces
 interface FormFields {
@@ -156,7 +169,7 @@ onUnmounted(() => {
       
       <!-- Section Header -->
       <div class="contact-header">
-        <h2 class="contact-title">
+        <h2 class="contact-title hover-flicker" data-text="Get in Touch">
           Get in Touch
         </h2>
         <p class="contact-subtitle">
@@ -168,7 +181,7 @@ onUnmounted(() => {
       <div class="contact-grid">
         
         <!-- Left Panel: Profile Contact Info -->
-        <div class="contact-info-panel">
+        <div class="contact-info-panel spotlight-card reveal-hidden" style="transition-delay: 0ms" @mousemove="handleMouseMove">
           <div>
             <h3 class="info-title">
               Contact Hub
@@ -255,7 +268,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Right Panel: Form Handler -->
-        <div class="contact-form-panel">
+        <div class="contact-form-panel spotlight-card reveal-hidden" style="transition-delay: 150ms" @mousemove="handleMouseMove">
           
           <!-- Idle / Submitting states -->
           <form v-if="status === 'idle' || status === 'submitting'" @submit.prevent="handleSubmit" novalidate>

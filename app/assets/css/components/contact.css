@@ -47,7 +47,11 @@
 }
 
 .contact-detail-icon-wrapper {
-  @apply p-2 bg-zinc-200/60 dark:bg-zinc-800/60 rounded-xl shrink-0 text-zinc-800 dark:text-zinc-200;
+  @apply p-2 bg-zinc-200/60 dark:bg-zinc-800/60 border border-transparent rounded-xl shrink-0 text-zinc-800 dark:text-zinc-200 transition-all duration-300;
+}
+
+.contact-detail-item:hover .contact-detail-icon-wrapper {
+  @apply bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 border-emerald-500/20;
 }
 
 .contact-detail-link {

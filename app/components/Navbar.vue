@@ -24,7 +24,7 @@ const toggleMenu = () => {
         
         <!-- Logo -->
         <div class="shrink-0">
-          <a href="#" class="nav-logo">
+          <a href="#" class="nav-logo hover-flicker" data-text="CodeWithDevi">
             CodeWithDevi
           </a>
         </div>

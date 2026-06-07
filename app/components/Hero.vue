@@ -19,8 +19,8 @@
 
       <!-- Main Headline -->
       <h1 class="hero-title">
-        Designing Premium <br class="hidden sm:inline" />
-        <span class="hero-title-gradient">
+        <span class="hover-flicker block" data-text="Designing Premium">Designing Premium</span>
+        <span class="hero-title-gradient hover-flicker block sm:inline-block" data-text="Web Experiences">
           Web Experiences
         </span>
       </h1>
