@@ -34,7 +34,7 @@
 
       <!-- Subheadline -->
       <p class="hero-subtitle">
-        Hi, I'm <span class="font-semibold text-zinc-900 dark:text-zinc-100">Joseph Claire L. Paquinol</span>, a Web Developer specializing in building high-performance, responsive web applications with Nuxt 4 and Tailwind CSS.
+        Hi, I'm <span class="font-semibold text-zinc-900 dark:text-zinc-100">Joseph Claire L. Paquinol</span> A.K.A. CodeWithDevi, a Full-Stack Web and Game Developer.
       </p>
 
       <!-- CTA Buttons -->
