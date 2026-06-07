@@ -1,3 +1,35 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const avatarSrc = '/images/avatar.png'
+const hasAvatarError = ref(false)
+const isOnline = ref(false)
+
+const checkOnlineStatus = () => {
+  try {
+    const manilaTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' })
+    const manilaHour = new Date(manilaTime).getHours()
+    isOnline.value = manilaHour >= 18 && manilaHour < 22
+  } catch (_) {
+    const hour = new Date().getHours()
+    isOnline.value = hour >= 18 && hour < 22
+  }
+}
+
+let checkInterval: any = null
+
+onMounted(() => {
+  checkOnlineStatus()
+  checkInterval = setInterval(checkOnlineStatus, 60000)
+})
+
+onUnmounted(() => {
+  if (checkInterval) {
+    clearInterval(checkInterval)
+  }
+})
+</script>
+
 <template>
   <section id="about" class="about-section">
     
@@ -9,18 +41,18 @@
           Profile & Attributes
         </h2>
         <p class="about-subtitle">
-          A bento-grid overview of my technical stack, milestones, and development values.
+          An overview of my technical stack and development values.
         </p>
       </div>
 
       <!-- Bento Grid Container -->
       <div class="bento-grid">
         
-        <!-- Card 1: Player Profile (Bio) - Spans 2 columns -->
+        <!-- Card 1: Player Description (Bio) - Spans 2 columns -->
         <div class="profile-card">
           <div>
             <h3 class="profile-title">
-              Player Profile
+              Player Description
             </h3>
             <p class="profile-bio">
               I am a web developer focused on building modern full-stack web applications. What started as an academic milestone has evolved into a dedicated career path where I design and implement responsive user interfaces alongside robust database systems and secure backends.
@@ -116,44 +148,52 @@
           </div>
         </div>
 
-        <!-- Card 2: Skill Tree (Timeline) - Spans 1 column -->
-        <div class="skill-tree-card">
-          <h3 class="skill-tree-title">
-            Skill Tree Path
+        <!-- Card 2: Player Profile - Spans 1 column -->
+        <div class="portrait-card">
+          <h3 class="portrait-title">
+            Player Profile
           </h3>
           
-          <div class="timeline-wrapper">
-            
-            <!-- Checkpoint 1 -->
-            <div class="timeline-node group/node">
-              <div class="node-dot-inactive group-hover/node:scale-125"></div>
-              <time class="node-label-inactive">Checkpoint 01</time>
-              <h4 class="node-title">Academic Foundation</h4>
-              <p class="node-desc">
-                Learned structured database systems (SQL, PostgreSQL) and core programming methodologies to fulfill academic guidelines.
-              </p>
+          <div class="portrait-image-container">
+            <div class="portrait-image-wrapper">
+              <!-- Fallback SVG silhouette if image fails to load or doesn't exist -->
+              <svg v-if="hasAvatarError" class="portrait-placeholder" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              <img 
+                v-else 
+                :src="avatarSrc" 
+                alt="Character Portrait" 
+                class="portrait-image"
+                @error="hasAvatarError = true"
+              />
+              <!-- Pulsing online/offline status indicator -->
+              <span class="status-indicator" :class="isOnline ? 'is-online' : 'is-offline'">
+                <span v-if="isOnline" class="status-pulse"></span>
+                <span class="status-dot" :class="isOnline ? 'is-online' : 'is-offline'"></span>
+                {{ isOnline ? 'ONLINE' : 'OFFLINE' }}
+              </span>
             </div>
+          </div>
 
-            <!-- Checkpoint 2 -->
-            <div class="timeline-node group/node">
-              <div class="node-dot-inactive group-hover/node:scale-125"></div>
-              <time class="node-label-inactive">Checkpoint 02</time>
-              <h4 class="node-title">Full-Stack Expansion</h4>
-              <p class="node-desc">
-                Built backend services using FastAPI and configured modern frontend reactive templates with Vue and Nuxt.
-              </p>
+          <div class="portrait-stats">
+            <div class="stat-item">
+              <span class="stat-label">Name</span>
+              <span class="stat-val font-pixel">Devi</span>
             </div>
-
-            <!-- Checkpoint 3 -->
-            <div class="timeline-node">
-              <div class="node-dot-active"></div>
-              <time class="node-label-active">Current Node</time>
-              <h4 class="node-title-active">Serverless Deployment</h4>
-              <p class="node-desc">
-                Deploying production-grade frontends on Vercel, databases on Neon, and backends on Render using Git flow.
-              </p>
+            <div class="stat-item">
+              <span class="stat-label">Class</span>
+              <span class="stat-val">Full-Stack & Game Dev</span>
             </div>
-
+            <div class="stat-item">
+              <span class="stat-label">Status</span>
+              <span 
+                class="stat-val font-mono tracking-wider transition-colors duration-200"
+                :class="isOnline ? 'text-emerald-500 dark:text-emerald-400' : 'text-zinc-400 dark:text-zinc-500'"
+              >
+                {{ isOnline ? 'AVAILABLE' : 'RESTING' }}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -212,6 +252,8 @@
             <span class="badge">Vercel</span>
             <span class="badge">Neon DB</span>
             <span class="badge">Render</span>
+            <span class="badge">VS Code</span>
+            <span class="badge">Godot Engine</span>
           </div>
         </div>
 
