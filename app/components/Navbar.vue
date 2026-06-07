@@ -23,8 +23,8 @@ const toggleMenu = () => {
       <div class="flex items-center justify-between h-16">
         
         <!-- Logo -->
-        <div class="flex-shrink-0">
-          <a href="#" class="text-xl font-black tracking-tight bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-white dark:to-zinc-450 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
+        <div class="shrink-0">
+          <a href="#" class="text-xl font-black tracking-tight bg-linear-to-r from-zinc-900 to-zinc-500 dark:from-white dark:to-zinc-450 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
             DevPortfolio
           </a>
         </div>

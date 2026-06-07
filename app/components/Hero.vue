@@ -5,11 +5,11 @@
     <div class="absolute inset-0 bg-dot-grid animate-grid-pan -z-20"></div>
     
     <!-- Background fade overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-zinc-950 dark:via-transparent dark:to-zinc-950 -z-10 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-linear-to-b from-white via-transparent to-white dark:from-zinc-950 dark:via-transparent dark:to-zinc-950 -z-10 pointer-events-none"></div>
     
     <!-- Glowing glassmorphism orbs (monochromatic grey/silver) -->
     <div class="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
-      <div class="absolute -top-[20%] left-[10%] w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] rounded-full bg-zinc-300/10 dark:bg-white/5 blur-[80px] sm:blur-[120px] animate-pulse duration-[8s] ease-in-out infinite"></div>
+      <div class="absolute top-[20%] left-[10%] w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] rounded-full bg-zinc-300/10 dark:bg-white/5 blur-[80px] sm:blur-[120px] animate-pulse duration-[8s] ease-in-out infinite"></div>
       <div class="absolute top-[40%] right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-zinc-400/10 dark:bg-zinc-300/5 blur-[70px] sm:blur-[100px] animate-pulse duration-[12s] ease-in-out infinite"></div>
     </div>
 
@@ -27,7 +27,7 @@
       <!-- Main Headline -->
       <h1 class="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.05] transition-colors duration-300">
         Designing Premium <br class="hidden sm:inline" />
-        <span class="bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-300 dark:to-zinc-500 bg-clip-text text-transparent drop-shadow-[0_2px_15px_rgba(255,255,255,0.05)]">
+        <span class="bg-linear-to-r from-zinc-900 via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-300 dark:to-zinc-500 bg-clip-text text-transparent drop-shadow-[0_2px_15px_rgba(255,255,255,0.05)]">
           Web Experiences
         </span>
       </h1>
@@ -65,7 +65,7 @@
     </div>
 
     <!-- SVG Wave Separator -->
-    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none translate-y-[1px] select-none pointer-events-none">
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none translate-y-px select-none pointer-events-none">
       <svg class="relative block w-full h-[40px] sm:h-[80px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,55.05,16.22,83.1,22.81,168.66,42.74,258.31,64.21,321.39,56.44Z" 
               class="fill-zinc-50 dark:fill-zinc-900 transition-colors duration-300"></path>
