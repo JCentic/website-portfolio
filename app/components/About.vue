@@ -174,6 +174,7 @@
             <span class="badge">Vue.js</span>
             <span class="badge-highlight">Nuxt 3</span>
             <span class="badge-highlight">Tailwind CSS</span>
+            <span class="badge-highlight">React Native</span>
           </div>
         </div>
 
@@ -189,8 +190,10 @@
           </div>
           <div class="inventory-badges">
             <span class="badge">FastAPI</span>
+            <span class="badge">Laravel</span>
             <span class="badge">PostgreSQL</span>
             <span class="badge">MySQL</span>
+            <span class="badge">SQLite</span>
           </div>
         </div>
 

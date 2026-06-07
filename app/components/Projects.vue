@@ -1,108 +1,88 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-
 interface Project {
   id: number
   title: string
   description: string
-  category: 'Full-Stack' | 'Frontend' | 'Backend/Libraries'
   tags: string[]
   githubUrl: string
   demoUrl: string
   imageUrl: string
 }
 
-const categories = ['All', 'Full-Stack', 'Frontend', 'Backend/Libraries'] as const
-type CategoryFilter = typeof categories[number]
-
-const activeCategory = ref<CategoryFilter>('All')
-
 const projects: Project[] = [
   {
     id: 1,
     title: 'CyberMorph (Capstone)',
     description: 'An AI-powered cybersecurity simulation mobile game designed for interactive security training, featuring cloud integration and dynamic network topologies.',
-    category: 'Full-Stack',
     tags: ['Vue.js', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Godot'],
     githubUrl: 'https://github.com/CodeWithDevi0',
-    demoUrl: 'https://example.com',
+    demoUrl: 'https://cyber-morph-portal.vercel.app/',
     imageUrl: '/images/projects/cybermorph.png'
   },
   {
     id: 2,
-    title: 'NeonSync Engine',
-    description: 'A high-performance synchronization utility designed to replicate data states between serverless Neon database pools and local caching nodes in real-time.',
-    category: 'Backend/Libraries',
-    tags: ['TypeScript', 'Node.js', 'PostgreSQL', 'Redis', 'Docker'],
-    githubUrl: 'https://github.com/CodeWithDevi0',
-    demoUrl: 'https://example.com',
-    imageUrl: '/images/projects/neonsync.png'
+    title: 'Taskenture',
+    description: 'An gamified task management system designed to help you organize your tasks and stay productive.',
+    tags: ['Laravel', 'Javascript', 'Bootstrap', 'HTML', 'CSS'],
+    githubUrl: 'https://github.com/panzerweb/taskentureui',
+    demoUrl: 'https://github.com/panzerweb/taskentureui', // not deployed yet
+    imageUrl: '/images/projects/taskenture.png'
   },
   {
     id: 3,
-    title: 'GlassyUI Kit',
-    description: 'A premium component design system library featuring responsive, glassmorphic UI components crafted specifically for Nuxt 3 and Vue 3 applications.',
-    category: 'Frontend',
-    tags: ['Vue 3', 'Nuxt 3', 'Tailwind CSS', 'TypeScript'],
-    githubUrl: 'https://github.com/CodeWithDevi0',
-    demoUrl: 'https://example.com',
-    imageUrl: '/images/projects/glassyui.png'
+    title: 'Store Management System',
+    description: 'A comprehensive store management system designed to help you manage your store, inventory, and sales.',
+    tags: ['Expo-React Native', 'Javascript', 'Expo-SQLite', 'Expo-Core'],
+    githubUrl: 'https://github.com/CodeWithDevi0/store-management',
+    demoUrl: 'https://github.com/CodeWithDevi0/store-management', // not deployed yet
+    imageUrl: '/images/projects/store-management.png'
   },
   {
     id: 4,
-    title: 'AuthGate',
-    description: 'A high-throughput microservice authentication API Gateway with built-in token signature verification, rate-limiting, and client proxy routing.',
-    category: 'Backend/Libraries',
-    tags: ['Python', 'FastAPI', 'Redis', 'Docker', 'JWT'],
-    githubUrl: 'https://github.com/CodeWithDevi0',
-    demoUrl: 'https://example.com',
-    imageUrl: '/images/projects/authgate.png'
+    title: 'LakbayPlus',
+    description: 'A promotional website for a travel agency named LakbayPlus - AI Powered travel itinerary planner web application.',
+    tags: ['HTML', 'CSS', 'Javascript'],
+    githubUrl: 'https://github.com/CodeWithDevi0/Lakbay-Promotional',
+    demoUrl: 'https://codewithdevi0.github.io/Lakbay-Promotional/',
+    imageUrl: '/images/projects/lakbay.png'
   }
 ]
-
-const filteredProjects = computed(() => {
-  if (activeCategory.value === 'All') {
-    return projects
-  }
-  return projects.filter(project => project.category === activeCategory.value)
-})
-
-const setCategory = (category: CategoryFilter) => {
-  activeCategory.value = category
-}
 </script>
 
 <template>
   <section id="projects" class="projects-section">
     <div class="projects-container">
       
-      <!-- Section Header -->
-      <div class="projects-header">
-        <h2 class="projects-title">
-          Featured Projects
-        </h2>
-        <p class="projects-subtitle">
-          A collection of web applications, database synchronizers, and libraries I have developed.
-        </p>
-      </div>
+      <!-- Section Header & Action Wrapper -->
+      <div class="projects-header-wrapper">
+        <div class="projects-header">
+          <h2 class="projects-title">
+            Featured Projects
+          </h2>
+          <p class="projects-subtitle">
+            A collection of web applications, database synchronizers, and libraries I have developed.
+          </p>
+        </div>
 
-      <!-- Filter Controls -->
-      <div class="filter-bar">
-        <button
-          v-for="cat in categories"
-          :key="cat"
-          @click="setCategory(cat)"
-          type="button"
-          :class="activeCategory === cat ? 'filter-btn-active' : 'filter-btn'"
+        <!-- View All Link (Redirects to GitHub Profile) -->
+        <a
+          href="https://github.com/CodeWithDevi0"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="filter-view-all-btn group"
         >
-          {{ cat }}
-        </button>
+          View All Projects
+          <!-- Right Arrow SVG -->
+          <svg class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
       </div>
 
       <!-- Projects Grid -->
       <div class="projects-grid">
         <div 
-          v-for="project in filteredProjects" 
+          v-for="project in projects" 
           :key="project.id"
           class="project-card"
         >

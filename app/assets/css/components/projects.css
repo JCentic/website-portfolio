@@ -8,8 +8,12 @@
   @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10;
 }
 
+.projects-header-wrapper {
+  @apply flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16;
+}
+
 .projects-header {
-  @apply text-center md:text-left mb-16;
+  @apply text-left mb-0;
 }
 
 .projects-title {
@@ -20,17 +24,8 @@
   @apply text-sm sm:text-base text-zinc-500 dark:text-zinc-400 mt-2;
 }
 
-/* Category Filter Tabs */
-.filter-bar {
-  @apply flex flex-wrap justify-center md:justify-start gap-2 mb-12;
-}
-
-.filter-btn {
-  @apply px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl border border-zinc-200/60 dark:border-zinc-800/60 bg-zinc-50/50 dark:bg-zinc-900/30 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 cursor-pointer select-none;
-}
-
-.filter-btn-active {
-  @apply px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl border border-zinc-900 dark:border-white bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 hover:opacity-95 transition-all duration-250 cursor-pointer select-none shadow-md shadow-zinc-900/10 dark:shadow-white/5;
+.filter-view-all-btn {
+  @apply inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl border border-zinc-200/60 dark:border-zinc-800/60 bg-zinc-50/50 dark:bg-zinc-900/30 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 cursor-pointer select-none shrink-0;
 }
 
 /* Grid Layout */
