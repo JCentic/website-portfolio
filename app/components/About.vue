@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useReveal } from '~/composables/useReveal'
 
 const avatarSrc = '/images/avatar.png'
 const hasAvatarError = ref(false)
 const isOnline = ref(false)
+
+useReveal()
 
 const checkOnlineStatus = () => {
   try {
@@ -17,6 +20,16 @@ const checkOnlineStatus = () => {
 }
 
 let checkInterval: any = null
+
+const handleMouseMove = (e: MouseEvent) => {
+  const card = e.currentTarget as HTMLElement
+  if (!card) return
+  const rect = card.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  card.style.setProperty('--mouse-x', `${x}px`)
+  card.style.setProperty('--mouse-y', `${y}px`)
+}
 
 onMounted(() => {
   checkOnlineStatus()
@@ -37,7 +50,7 @@ onUnmounted(() => {
       
       <!-- Section Header -->
       <div class="about-header">
-        <h2 class="about-title">
+        <h2 class="about-title hover-flicker" data-text="Profile & Attributes">
           Profile & Attributes
         </h2>
         <p class="about-subtitle">
@@ -49,7 +62,7 @@ onUnmounted(() => {
       <div class="bento-grid">
         
         <!-- Card 1: Player Description (Bio) - Spans 2 columns -->
-        <div class="profile-card">
+        <div class="profile-card spotlight-card reveal-hidden" style="transition-delay: 0ms" @mousemove="handleMouseMove">
           <div>
             <h3 class="profile-title">
               Player Description
@@ -149,7 +162,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Card 2: Player Profile - Spans 1 column -->
-        <div class="portrait-card">
+        <div class="portrait-card spotlight-card reveal-hidden" style="transition-delay: 100ms" @mousemove="handleMouseMove">
           <h3 class="portrait-title">
             Player Profile
           </h3>
@@ -198,7 +211,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Card 3: Frontend Inventory - Spans 1 column -->
-        <div class="inventory-card">
+        <div class="inventory-card spotlight-card reveal-hidden" style="transition-delay: 200ms" @mousemove="handleMouseMove">
           <div>
             <h3 class="inventory-title">
               Frontend Inventory
@@ -219,7 +232,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Card 4: Backend & DB Inventory - Spans 1 column -->
-        <div class="inventory-card">
+        <div class="inventory-card spotlight-card reveal-hidden" style="transition-delay: 300ms" @mousemove="handleMouseMove">
           <div>
             <h3 class="inventory-title">
               Backend & Database
@@ -238,7 +251,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Card 5: Tools & Platforms - Spans 1 column -->
-        <div class="inventory-card">
+        <div class="inventory-card spotlight-card reveal-hidden" style="transition-delay: 400ms" @mousemove="handleMouseMove">
           <div>
             <h3 class="inventory-title">
               Tools & Platforms
@@ -258,7 +271,7 @@ onUnmounted(() => {
         </div>
 
         <!-- Card 6: Active Quests - Spans 3 columns -->
-        <div class="quests-card">
+        <div class="quests-card spotlight-card reveal-hidden" style="transition-delay: 500ms" @mousemove="handleMouseMove">
           <h3 class="quests-title">
             Active Quests
           </h3>

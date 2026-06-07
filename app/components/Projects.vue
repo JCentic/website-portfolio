@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useReveal } from '~/composables/useReveal'
+
 interface Project {
   id: number
   title: string
@@ -8,6 +10,8 @@ interface Project {
   demoUrl: string
   imageUrl: string
 }
+
+useReveal()
 
 const projects: Project[] = [
   {
@@ -47,6 +51,16 @@ const projects: Project[] = [
     imageUrl: '/images/projects/lakbay.png'
   }
 ]
+
+const handleMouseMove = (e: MouseEvent) => {
+  const card = e.currentTarget as HTMLElement
+  if (!card) return
+  const rect = card.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  card.style.setProperty('--mouse-x', `${x}px`)
+  card.style.setProperty('--mouse-y', `${y}px`)
+}
 </script>
 
 <template>
@@ -56,7 +70,7 @@ const projects: Project[] = [
       <!-- Section Header & Action Wrapper -->
       <div class="projects-header-wrapper">
         <div class="projects-header">
-          <h2 class="projects-title">
+          <h2 class="projects-title hover-flicker" data-text="Featured Projects">
             Featured Projects
           </h2>
           <p class="projects-subtitle">
@@ -82,9 +96,11 @@ const projects: Project[] = [
       <!-- Projects Grid -->
       <div class="projects-grid">
         <div 
-          v-for="project in projects" 
+          v-for="(project, index) in projects" 
           :key="project.id"
-          class="project-card"
+          class="project-card spotlight-card reveal-hidden"
+          :style="{ transitionDelay: `${index * 120}ms` }"
+          @mousemove="handleMouseMove"
         >
           <!-- Project Preview Image (Easy to replace later) -->
           <div class="project-image-wrapper">
