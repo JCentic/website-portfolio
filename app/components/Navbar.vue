@@ -25,7 +25,7 @@ const toggleMenu = () => {
         <!-- Logo -->
         <div class="shrink-0">
           <a href="#" class="nav-logo">
-            DevPortfolio
+            CodeWithDevi
           </a>
         </div>
 
