@@ -1,10 +1,37 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-pixel: 'Pixelify Sans', sans-serif;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* Smooth transitions for background and text color theme switches */
 html, body {
+  font-family: var(--font-sans);
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Selective gamified headings */
+.nav-logo,
+.hero-title,
+.about-title,
+.profile-title,
+.skill-tree-title,
+.inventory-title,
+.quests-title,
+.projects-title,
+.contact-title,
+.contact-panel-title {
+  font-family: var(--font-pixel) !important;
+  font-weight: 500 !important;
 }
 
 /* Slowly floats the background dot pattern */
