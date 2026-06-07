@@ -68,7 +68,7 @@
     <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none translate-y-px select-none pointer-events-none">
       <svg class="relative block w-full h-[40px] sm:h-[80px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,55.05,16.22,83.1,22.81,168.66,42.74,258.31,64.21,321.39,56.44Z" 
-              class="fill-zinc-50 dark:fill-zinc-900 transition-colors duration-300"></path>
+              class="fill-zinc-100 dark:fill-zinc-900 transition-colors duration-300"></path>
       </svg>
     </div>
 
