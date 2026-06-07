@@ -18,36 +18,36 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/70 dark:bg-zinc-950/70 border-b border-zinc-200/40 dark:border-zinc-800/40 transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
+  <header class="nav-header">
+    <div class="nav-container">
+      <div class="nav-row">
         
         <!-- Logo -->
         <div class="shrink-0">
-          <a href="#" class="text-xl font-black tracking-tight bg-linear-to-r from-zinc-900 to-zinc-500 dark:from-white dark:to-zinc-450 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
+          <a href="#" class="nav-logo">
             DevPortfolio
           </a>
         </div>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-8">
+        <nav class="nav-desktop-menu">
           <a 
             v-for="link in navLinks" 
             :key="link.name" 
             :href="link.href" 
-            class="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors duration-200"
+            class="nav-link"
           >
             {{ link.name }}
           </a>
         </nav>
 
         <!-- Right: Theme Toggle & Hamburger -->
-        <div class="flex items-center space-x-4">
+        <div class="nav-controls">
           <!-- Theme Toggle Button -->
           <button 
             @click="toggleTheme" 
             type="button"
-            class="p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white focus:outline-none transition-all duration-300 transform active:scale-95"
+            class="theme-btn"
             aria-label="Toggle theme"
           >
             <!-- Sun Icon (shown in dark mode) -->
@@ -64,7 +64,7 @@ const toggleMenu = () => {
           <button 
             @click="toggleMenu" 
             type="button"
-            class="md:hidden p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 focus:outline-none transition-all duration-200"
+            class="mobile-toggle-btn"
             aria-label="Toggle navigation menu"
           >
             <!-- Open Menu Icon (three bars) -->
@@ -90,13 +90,13 @@ const toggleMenu = () => {
       leave-from-class="transform translate-y-0 opacity-100"
       leave-to-class="transform -translate-y-4 opacity-0"
     >
-      <div v-show="isMenuOpen" class="md:hidden border-t border-zinc-200/50 dark:border-zinc-850 bg-white dark:bg-zinc-950 px-4 pt-2 pb-4 space-y-1 shadow-lg transition-colors duration-300">
+      <div v-show="isMenuOpen" class="mobile-menu">
         <a 
           v-for="link in navLinks" 
           :key="link.name" 
           :href="link.href" 
           @click="isMenuOpen = false"
-          class="block px-3 py-2.5 rounded-lg text-base font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-all duration-200"
+          class="mobile-nav-link"
         >
           {{ link.name }}
         </a>
@@ -104,3 +104,5 @@ const toggleMenu = () => {
     </transition>
   </header>
 </template>
+
+<style scoped src="../assets/css/components/navbar.css"></style>
