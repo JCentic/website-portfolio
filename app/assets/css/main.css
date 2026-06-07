@@ -6,3 +6,22 @@
 html, body {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
+
+/* Slowly floats the background dot pattern */
+@keyframes grid-pan {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 24px 24px; }
+}
+
+.animate-grid-pan {
+  animation: grid-pan 12s linear infinite;
+}
+
+/* Background dots definition */
+.bg-dot-grid {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+}
+.dark .bg-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}

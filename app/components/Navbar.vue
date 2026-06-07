@@ -24,7 +24,7 @@ const toggleMenu = () => {
         
         <!-- Logo -->
         <div class="flex-shrink-0">
-          <a href="#" class="text-xl font-black tracking-tight bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
+          <a href="#" class="text-xl font-black tracking-tight bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-white dark:to-zinc-450 bg-clip-text text-transparent hover:opacity-90 transition-opacity">
             DevPortfolio
           </a>
         </div>
@@ -35,7 +35,7 @@ const toggleMenu = () => {
             v-for="link in navLinks" 
             :key="link.name" 
             :href="link.href" 
-            class="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+            class="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors duration-200"
           >
             {{ link.name }}
           </a>
@@ -47,7 +47,7 @@ const toggleMenu = () => {
           <button 
             @click="toggleTheme" 
             type="button"
-            class="p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none transition-all duration-300 transform active:scale-95"
+            class="p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white focus:outline-none transition-all duration-300 transform active:scale-95"
             aria-label="Toggle theme"
           >
             <!-- Sun Icon (shown in dark mode) -->
@@ -96,7 +96,7 @@ const toggleMenu = () => {
           :key="link.name" 
           :href="link.href" 
           @click="isMenuOpen = false"
-          class="block px-3 py-2.5 rounded-lg text-base font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-200"
+          class="block px-3 py-2.5 rounded-lg text-base font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-all duration-200"
         >
           {{ link.name }}
         </a>
