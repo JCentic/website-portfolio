@@ -15,14 +15,7 @@
 
     <div class="hero-content-wrapper">
       
-      <!-- Available for Hire Tag -->
-      <div class="hire-tag">
-        <span class="hire-ping">
-          <span class="hire-ping-animation"></span>
-          <span class="hire-ping-dot"></span>
-        </span>
-        Available for New Opportunities
-      </div>
+
 
       <!-- Main Headline -->
       <h1 class="hero-title">
