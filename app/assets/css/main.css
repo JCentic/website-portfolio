@@ -13,15 +13,16 @@ html, body {
   100% { background-position: 24px 24px; }
 }
 
-.animate-grid-pan {
+@utility animate-grid-pan {
   animation: grid-pan 12s linear infinite;
 }
 
 /* Background dots definition */
-.bg-dot-grid {
+@utility bg-dot-grid {
   background-size: 24px 24px;
   background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
-}
-.dark .bg-dot-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  
+  @variant dark {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  }
 }

@@ -1,0 +1,83 @@
+@reference "../main.css";
+
+.hero-section {
+  @apply relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden px-4 py-28 text-center;
+}
+
+.hero-background-grid {
+  @apply absolute inset-0 bg-dot-grid animate-grid-pan -z-20;
+}
+
+.hero-fade-overlay {
+  @apply absolute inset-0 bg-linear-to-b from-white via-transparent to-white dark:from-zinc-950 dark:via-transparent dark:to-zinc-950 -z-10 pointer-events-none;
+}
+
+.hero-orbs-container {
+  @apply absolute inset-0 overflow-hidden -z-10 pointer-events-none;
+}
+
+.hero-orb-1 {
+  @apply absolute top-[20%] left-[10%] w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] rounded-full bg-zinc-300/10 dark:bg-white/5 blur-[80px] sm:blur-[120px];
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.hero-orb-2 {
+  @apply absolute top-[40%] right-[10%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-zinc-400/10 dark:bg-zinc-300/5 blur-[70px] sm:blur-[100px];
+  animation: pulse 12s ease-in-out infinite;
+}
+
+.hero-content-wrapper {
+  @apply max-w-4xl mx-auto flex flex-col items-center mb-12;
+}
+
+.hire-tag {
+  @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-900/60 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800/80 backdrop-blur-md mb-8 hover:scale-[1.02] transition-transform duration-300;
+}
+
+.hire-ping {
+  @apply relative flex h-2 w-2;
+}
+
+.hire-ping-animation {
+  @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75;
+}
+
+.hire-ping-dot {
+  @apply relative inline-flex rounded-full h-2 w-2 bg-emerald-500;
+}
+
+.hero-title {
+  @apply text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.05] transition-colors duration-300;
+}
+
+.hero-title-gradient {
+  @apply bg-linear-to-r from-zinc-900 via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-300 dark:to-zinc-500 bg-clip-text text-transparent drop-shadow-[0_2px_15px_rgba(255,255,255,0.05)];
+}
+
+.hero-subtitle {
+  @apply text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mt-8 leading-relaxed transition-colors duration-300;
+}
+
+.hero-cta-container {
+  @apply flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 w-full sm:w-auto;
+}
+
+.hero-btn-primary {
+  @apply relative w-full sm:w-auto px-8 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200 font-semibold shadow-lg shadow-zinc-500/10 hover:shadow-zinc-500/20 dark:shadow-white/5 dark:hover:shadow-white/10 hover:scale-[1.02] transition-all duration-300 active:scale-98 flex items-center justify-center gap-2;
+}
+
+.hero-btn-secondary {
+  @apply w-full sm:w-auto px-8 py-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 font-semibold hover:bg-zinc-50 dark:hover:bg-zinc-900/60 hover:text-black dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-600 transition-all duration-300 active:scale-98 flex items-center justify-center;
+}
+
+.hero-wave-wrapper {
+  @apply absolute bottom-0 left-0 w-full overflow-hidden leading-none translate-y-px select-none pointer-events-none;
+}
+
+.hero-wave-svg {
+  @apply relative block w-full h-[40px] sm:h-[80px];
+}
+
+.hero-wave-path {
+  @apply fill-zinc-100 dark:fill-zinc-900 transition-colors duration-300;
+}
