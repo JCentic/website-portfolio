@@ -249,6 +249,7 @@ onUnmounted(() => {
             <span class="badge">PostgreSQL</span>
             <span class="badge">MySQL</span>
             <span class="badge">SQLite</span>
+            <span class="badge">NodeJS</span>
           </div>
         </div>
 
