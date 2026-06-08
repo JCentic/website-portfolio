@@ -196,7 +196,7 @@ onUnmounted(() => {
             </div>
             <div class="stat-item">
               <span class="stat-label">Class</span>
-              <span class="stat-val">Full-Stack & Game Dev</span>
+              <span class="stat-val">Web & Game Developer</span>
             </div>
             <div class="stat-item">
               <span class="stat-label">Status</span>

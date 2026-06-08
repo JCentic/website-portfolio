@@ -27,7 +27,7 @@
 
       <!-- Subheadline -->
       <p class="hero-subtitle">
-        Hi, I'm <span class="font-semibold text-zinc-900 dark:text-zinc-100">Joseph</span> A.K.A. CodeWithDevi, a Full-Stack Web and Game Developer.
+        Hi, I'm <span class="font-semibold text-zinc-900 dark:text-zinc-100">Joseph</span> a.k.a. CodeWithDevi, a 3rd-year BSIT student from DNSC and a Web and Game Developer.
       </p>
 
       <!-- CTA Buttons -->
