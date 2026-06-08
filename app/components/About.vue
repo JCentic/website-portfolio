@@ -230,7 +230,7 @@ onUnmounted(() => {
         <div class="inventory-card spotlight-card reveal-hidden" style="transition-delay: 200ms" @mousemove="handleMouseMove">
           <div>
             <h3 class="inventory-title">
-              Frontend Inventory
+              Frontend
             </h3>
             <p class="inventory-desc">
               Client languages and reactive layout engines.
