@@ -71,7 +71,7 @@ onUnmounted(() => {
               I am a web developer focused on building modern full-stack web applications. What started as an academic milestone has evolved into a dedicated career path where I design and implement responsive user interfaces alongside robust database systems and secure backends.
             </p>
             <p class="profile-bio-extra">
-              I treat web engineering like system design in a game: balancing optimal API performance, secure query processing, and fluid responsive styling to create a seamless user experience.
+              I treat web engineering like system design in a game: balancing optimal API performance, secure query processing, fluid responsive styling, and agentic engineering workflows to create a seamless user experience.
             </p>
 
             <!-- Core Engineering Areas -->
@@ -141,6 +141,22 @@ onUnmounted(() => {
                 </div>
               </div>
 
+              <!-- Area 5: Agentic Engineering -->
+              <div class="core-area-item sm:col-span-2">
+                <div class="core-area-icon-wrapper">
+                  <!-- AI / Robot / Intelligence SVG icon -->
+                  <svg class="core-area-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="core-area-title">Agentic Engineering</h4>
+                  <p class="core-area-desc">
+                    Utilizing structured agentic workflows, intent-first prompt schemas, and isolated context sessions to build clean, predictable codebases.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
           
@@ -152,7 +168,7 @@ onUnmounted(() => {
             </div>
             <div>
               <span class="hud-label">Specialty</span>
-              <span class="hud-val">Nuxt 3 & APIs</span>
+              <span class="hud-val">Backend Dev</span>
             </div>
             <div>
               <span class="hud-label">Database</span>
@@ -242,7 +258,9 @@ onUnmounted(() => {
             </p>
           </div>
           <div class="inventory-badges">
+            <span class="badge">Python</span>
             <span class="badge">FastAPI</span>
+            <span class="badge">PHP</span>
             <span class="badge">Laravel</span>
             <span class="badge">PostgreSQL</span>
             <span class="badge">MySQL</span>
@@ -339,6 +357,29 @@ onUnmounted(() => {
                 <h5 class="quest-title">Design Patterns</h5>
                 <p class="quest-desc">
                   Implement patterns like MVC, Singleton, and Factory across frontend/backend stacks.
+                </p>
+              </div>
+              <div class="quest-status">
+                <span class="status-dot"></span>
+                <span class="status-label">Active</span>
+              </div>
+            </div>
+
+            <!-- Quest 4 -->
+            <div class="quest-card">
+              <div>
+                <div class="quest-header">
+                  <div class="quest-icon-wrapper">
+                    <!-- Terminal SVG icon -->
+                    <svg class="quest-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h4 class="quest-label">Learning Journey</h4>
+                </div>
+                <h5 class="quest-title">Agentic Engineering</h5>
+                <p class="quest-desc">
+                  Master agentic workflows, intent-first prompt schemas, and structured context isolation.
                 </p>
               </div>
               <div class="quest-status">
