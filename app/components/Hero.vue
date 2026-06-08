@@ -19,15 +19,15 @@
 
       <!-- Main Headline -->
       <h1 class="hero-title">
-        <span class="hover-flicker block" data-text="Designing Premium">Designing Premium</span>
-        <span class="hero-title-gradient hover-flicker block sm:inline-block" data-text="Web Experiences">
-          Web Experiences
+        <span class="hover-flicker block" data-text="Building Modern">Building Modern</span>
+        <span class="hero-title-gradient hover-flicker block sm:inline-block" data-text="Web Applications">
+          Web Applications
         </span>
       </h1>
 
       <!-- Subheadline -->
       <p class="hero-subtitle">
-        Hi, I'm <span class="font-semibold text-zinc-900 dark:text-zinc-100">Joseph Claire L. Paquinol</span> A.K.A. CodeWithDevi, a Full-Stack Web and Game Developer.
+        Hi, I'm <span class="font-semibold text-zinc-900 dark:text-zinc-100">Joseph</span> A.K.A. CodeWithDevi, a Full-Stack Web and Game Developer.
       </p>
 
       <!-- CTA Buttons -->

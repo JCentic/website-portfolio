@@ -159,22 +159,6 @@ onUnmounted(() => {
 
             </div>
           </div>
-          
-          <!-- Gamer HUD / Stats Panel -->
-          <div class="hud-panel">
-            <div>
-              <span class="hud-label">Class</span>
-              <span class="hud-val">Full-Stack Dev</span>
-            </div>
-            <div>
-              <span class="hud-label">Specialty</span>
-              <span class="hud-val">Backend Dev</span>
-            </div>
-            <div>
-              <span class="hud-label">Database</span>
-              <span class="hud-val">PostgreSQL / SQL</span>
-            </div>
-          </div>
         </div>
 
         <!-- Card 2: Player Profile - Spans 1 column -->
@@ -207,8 +191,8 @@ onUnmounted(() => {
 
           <div class="portrait-stats">
             <div class="stat-item">
-              <span class="stat-label">Name</span>
-              <span class="stat-val font-pixel">Devi</span>
+              <span class="stat-label">FullName</span>
+              <span class="stat-val font-pixel">Joseph Claire L. Paquinol</span>
             </div>
             <div class="stat-item">
               <span class="stat-label">Class</span>

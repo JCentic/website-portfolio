@@ -18,37 +18,37 @@ const projects: Project[] = [
     id: 1,
     title: 'CyberMorph (Capstone)',
     description: 'An AI-powered cybersecurity simulation mobile game designed for interactive security training, featuring cloud integration and dynamic network topologies.',
-    tags: ['Vue.js', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Godot'],
+    tags: ['Vue.js', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Godot', 'Render', 'Vercel', 'PostgreSQL', 'Neon', 'Reinforcement Learning'],
     githubUrl: 'https://github.com/CodeWithDevi0',
     demoUrl: 'https://cyber-morph-portal.vercel.app/',
     imageUrl: '/images/projects/cybermorph.png'
   },
   {
     id: 2,
-    title: 'Taskenture',
-    description: 'An gamified task management system designed to help you organize your tasks and stay productive.',
-    tags: ['Laravel', 'Javascript', 'Bootstrap', 'HTML', 'CSS'],
-    githubUrl: 'https://github.com/panzerweb/taskentureui',
-    demoUrl: 'https://github.com/panzerweb/taskentureui', // not deployed yet
-    imageUrl: '/images/projects/taskenture.png'
+    title: 'DNSC Clothing Store',
+    description: 'An E-commerce Platform (Customer & Admin) for DNSC Clothing Store, featuring an Inventory Management System for monitoring sales, new stocks, and store inventory.',
+    tags: ['PHP', 'JavaScript', 'Bootstrap', 'HTML', 'CSS'],
+    githubUrl: 'https://github.com/YuKennnn/DNSC_SMS',
+    demoUrl: 'https://github.com/YuKennnn/DNSC_SMS', // not deployed yet and I am a collaborator
+    imageUrl: '/images/projects/dnsc-store.png'
   },
   {
     id: 3,
-    title: 'Store Management System',
-    description: 'A comprehensive store management system designed to help you manage your store, inventory, and sales.',
-    tags: ['Expo-React Native', 'Javascript', 'Expo-SQLite', 'Expo-Core'],
-    githubUrl: 'https://github.com/CodeWithDevi0/store-management',
-    demoUrl: 'https://github.com/CodeWithDevi0/store-management', // not deployed yet
-    imageUrl: '/images/projects/store-management.png'
+    title: 'PEasy Builder',
+    description: 'A custom PC builder web application that lets users select components, check part compatibility, and shop for parts.',
+    tags: ['PHP', 'JavaScript', 'CSS', 'XAMPP', 'MySQL'],
+    githubUrl: 'https://github.com/CodeWithDevi0/PeasyShopBuilder',
+    demoUrl: 'https://github.com/CodeWithDevi0/PeasyShopBuilder', // not deployed yet
+    imageUrl: '/images/projects/peasy-builder.png'
   },
   {
     id: 4,
-    title: 'LakbayPlus',
-    description: 'A promotional website for a travel agency named LakbayPlus - AI Powered travel itinerary planner web application.',
-    tags: ['HTML', 'CSS', 'Javascript'],
-    githubUrl: 'https://github.com/CodeWithDevi0/Lakbay-Promotional',
-    demoUrl: 'https://codewithdevi0.github.io/Lakbay-Promotional/',
-    imageUrl: '/images/projects/lakbay.png'
+    title: 'Taskenture',
+    description: 'A gamified task management system that transforms daily chores into an adventure.',
+    tags: ['Laravel', 'Javascript', 'Bootstrap', 'HTML', 'CSS'],
+    githubUrl: 'https://github.com/panzerweb/taskentureui',
+    demoUrl: 'https://github.com/panzerweb/taskentureui',
+    imageUrl: '/images/projects/taskenture.png'
   }
 ]
 
