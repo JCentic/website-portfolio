@@ -24,9 +24,18 @@
   @apply text-sm sm:text-base text-zinc-500 dark:text-zinc-400 mt-2;
 }
 
-.filter-view-all-btn {
-  @apply inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl border border-zinc-200/60 dark:border-zinc-800/60 bg-zinc-50/50 dark:bg-zinc-900/30 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 cursor-pointer select-none shrink-0;
+.filter-tabs {
+  @apply flex items-center gap-1.5 p-1 bg-zinc-100/80 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60 rounded-2xl;
 }
+
+.filter-tab {
+  @apply px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-xl text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 cursor-pointer select-none border border-transparent;
+}
+
+.filter-tab.is-active {
+  @apply bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white border-zinc-200/60 dark:border-zinc-800/60 shadow-sm;
+}
+
 
 /* Grid Layout */
 .projects-grid {
@@ -107,4 +116,163 @@
 
 .project-wave-path {
   @apply fill-zinc-100 dark:fill-zinc-900 transition-colors duration-300;
+}
+
+/* Fallback Placeholders */
+.project-placeholder-fallback {
+  @apply w-full h-full flex flex-col items-center justify-center bg-zinc-50 dark:bg-zinc-900/30 p-8 select-none aspect-video;
+}
+
+.fallback-svg {
+  @apply w-12 h-12 text-zinc-400 dark:text-zinc-600 mb-2 transition-transform duration-300;
+}
+
+.project-card:hover .fallback-svg {
+  @apply scale-110 text-zinc-500 dark:text-zinc-400;
+}
+
+.fallback-text {
+  @apply text-[10px] font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500;
+}
+
+/* Glitch Grid Animation */
+.projects-grid.is-glitching {
+  animation: grid-glitch 0.3s steps(2, end);
+}
+
+@keyframes grid-glitch {
+  0% {
+    transform: translate(2px, -1px) skew(1deg);
+    clip-path: inset(10% 0 30% 0);
+    opacity: 0.8;
+  }
+  20% {
+    transform: translate(-1px, 2px) skew(-2deg);
+    clip-path: inset(40% 0 10% 0);
+    opacity: 0.9;
+  }
+  40% {
+    transform: translate(1px, -2px) skew(1deg);
+    clip-path: inset(25% 0 45% 0);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translate(-2px, 1px) skew(2deg);
+    clip-path: inset(5% 0 85% 0);
+    opacity: 0.95;
+  }
+  80% {
+    transform: translate(1px, 2px) skew(-1deg);
+    clip-path: inset(70% 0 15% 0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(0, 0) skew(0);
+    clip-path: none;
+    opacity: 1;
+  }
+}
+
+/* Disabled project actions styling */
+.project-link-github.is-disabled,
+.project-link-demo.is-disabled {
+  @apply opacity-40 cursor-pointer border-zinc-200/20 dark:border-zinc-800/20 text-zinc-400 dark:text-zinc-600 hover:text-zinc-400 dark:hover:text-zinc-600 hover:bg-transparent shadow-none hover:shadow-none hover:border-zinc-200/20 dark:hover:border-zinc-800/20;
+}
+
+/* Cyber Toast styling (Yin Yang Theme) */
+.cyber-toast {
+  @apply fixed bottom-8 right-8 z-50 flex flex-col gap-1.5 px-5 py-3.5 rounded-xl border bg-white/95 dark:bg-black/95 text-zinc-900 dark:text-white border-zinc-200 dark:border-zinc-800 shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_25px_rgba(255,255,255,0.15)] select-none pointer-events-auto overflow-hidden;
+  font-family: 'Outfit', 'Inter', monospace;
+}
+
+.cyber-toast-content {
+  @apply flex items-center gap-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-900 dark:text-white;
+}
+
+.cyber-toast-icon {
+  @apply w-5 h-5 text-zinc-900 dark:text-white shrink-0 animate-pulse;
+}
+
+.cyber-toast-text {
+  @apply select-none;
+}
+
+.cyber-toast-bar {
+  @apply absolute bottom-0 left-0 h-[3px] bg-zinc-900 dark:bg-white;
+  width: 100%;
+  animation: toast-progress 3s linear forwards;
+}
+
+/* Vue Cyber Toast Transitions (Glitch In & Out) */
+.cyber-toast-enter-active {
+  animation: toast-glitch-in 0.35s steps(5, end);
+}
+
+.cyber-toast-leave-active {
+  animation: toast-glitch-out 0.35s steps(5, end);
+}
+
+@keyframes toast-glitch-in {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) skewX(-25deg) scale(0.85);
+    clip-path: inset(20% 0 50% 0);
+  }
+  25% {
+    opacity: 0.85;
+    transform: translateY(-8px) skewX(20deg) scale(1.08);
+    clip-path: inset(65% 0 10% 0);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(5px) skewX(-18deg) scale(0.92);
+    clip-path: inset(10% 0 80% 0);
+  }
+  75% {
+    opacity: 0.95;
+    transform: translateY(-2px) skewX(10deg) scale(1.03);
+    clip-path: inset(45% 0 35% 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) skewX(0) scale(1);
+    clip-path: none;
+  }
+}
+
+@keyframes toast-glitch-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0) skewX(0) scale(1);
+    clip-path: none;
+  }
+  25% {
+    opacity: 0.75;
+    transform: translateY(5px) skewX(18deg) scale(0.96);
+    clip-path: inset(25% 0 45% 0);
+  }
+  50% {
+    opacity: 0.2;
+    transform: translateY(-8px) skewX(-25deg) scale(1.06);
+    clip-path: inset(80% 0 5% 0);
+  }
+  75% {
+    opacity: 0.5;
+    transform: translateY(12px) skewX(20deg) scale(0.88);
+    clip-path: inset(10% 0 85% 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(45px) skewX(-30deg) scale(0.8);
+    clip-path: inset(90% 0 5% 0);
+  }
+}
+
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
 }

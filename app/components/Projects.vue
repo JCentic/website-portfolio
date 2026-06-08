@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import { useReveal } from '~/composables/useReveal'
 
 interface Project {
@@ -9,6 +10,7 @@ interface Project {
   githubUrl: string
   demoUrl: string
   imageUrl: string
+  category: 'programming' | 'academic'
 }
 
 useReveal()
@@ -18,39 +20,159 @@ const projects: Project[] = [
     id: 1,
     title: 'CyberMorph (Capstone)',
     description: 'An AI-powered cybersecurity simulation mobile game designed for interactive security training, featuring cloud integration and dynamic network topologies.',
-    tags: ['Vue.js', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Godot', 'Render', 'Vercel', 'PostgreSQL', 'Neon', 'Reinforcement Learning'],
+    tags: ['3rd Year', 'Vue.js', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Godot', 'Render', 'Vercel', 'PostgreSQL', 'Neon', 'Reinforcement Learning'],
     githubUrl: 'https://github.com/CodeWithDevi0',
     demoUrl: 'https://cyber-morph-portal.vercel.app/',
-    imageUrl: '/images/projects/cybermorph.png'
+    imageUrl: '/images/projects/cybermorph.png',
+    category: 'programming'
   },
   {
     id: 2,
-    title: 'DNSC Clothing Store',
-    description: 'An E-commerce Platform (Customer & Admin) for DNSC Clothing Store, featuring an Inventory Management System for monitoring sales, new stocks, and store inventory.',
-    tags: ['PHP', 'JavaScript', 'Bootstrap', 'HTML', 'CSS'],
-    githubUrl: 'https://github.com/YuKennnn/DNSC_SMS',
-    demoUrl: 'https://github.com/YuKennnn/DNSC_SMS', // not deployed yet and I am a collaborator
-    imageUrl: '/images/projects/dnsc-store.png'
+    title: 'Sari-sari Store Management System',
+    description: 'An application I created to help local stores track inventory, daily sales, and print receipts.',
+    tags: ['3rd Year', 'React-Native', 'React-Expo', 'Tailwind CSS', 'JavaScript', 'SQLite', 'Self Project'],
+    githubUrl: 'https://github.com/CodeWithDevi0/store-management',
+    demoUrl: '',
+    imageUrl: '/images/projects/store-management.png',
+    category: 'programming'
   },
   {
     id: 3,
-    title: 'PEasy Builder',
-    description: 'A custom PC builder web application that lets users select components, check part compatibility, and shop for parts.',
-    tags: ['PHP', 'JavaScript', 'CSS', 'XAMPP', 'MySQL'],
-    githubUrl: 'https://github.com/CodeWithDevi0/PeasyShopBuilder',
-    demoUrl: 'https://github.com/CodeWithDevi0/PeasyShopBuilder', // not deployed yet
-    imageUrl: '/images/projects/peasy-builder.png'
+    title: 'DNSC Clothing Store',
+    description: 'An E-commerce Platform (Customer & Admin) for DNSC Clothing Store, featuring an Inventory Management System for monitoring sales, new stocks, and store inventory.',
+    tags: ['2nd Year', 'PHP', 'JavaScript', 'Bootstrap', 'HTML', 'CSS'],
+    githubUrl: 'https://github.com/YuKennnn/DNSC_SMS',
+    demoUrl: '',
+    imageUrl: '/images/projects/dnsc-store.png',
+    category: 'programming'
   },
   {
     id: 4,
+    title: 'PEasy Builder',
+    description: 'A custom PC builder web application that lets users select components, check part compatibility, and shop for parts.',
+    tags: ['2nd Year', 'PHP', 'JavaScript', 'CSS', 'XAMPP', 'MySQL'],
+    githubUrl: 'https://github.com/CodeWithDevi0/PeasyShopBuilder',
+    demoUrl: '',
+    imageUrl: '/images/projects/peasy-builder.png',
+    category: 'programming'
+  },
+  {
+    id: 5,
     title: 'Taskenture',
     description: 'A gamified task management system that transforms daily chores into an adventure.',
-    tags: ['Laravel', 'Javascript', 'Bootstrap', 'HTML', 'CSS'],
+    tags: ['2nd Year', 'Laravel', 'Javascript', 'Bootstrap', 'HTML', 'CSS'],
     githubUrl: 'https://github.com/panzerweb/taskentureui',
-    demoUrl: 'https://github.com/panzerweb/taskentureui',
-    imageUrl: '/images/projects/taskenture.png'
-  }
+    demoUrl: '',
+    imageUrl: '/images/projects/taskenture.png',
+    category: 'programming'
+  },
+  {
+    id: 6,
+    title: 'Blood Drive',
+    description: 'A Short Film about a group of spies tasked together on a mission to bring down a certain enemy, only to discover a big secret',    
+    tags: ['1st Year', 'English', 'Capcut', 'Short Film', 'Video Editor', 'Actor'],
+    githubUrl: '', // No github url for academic projects
+    demoUrl: '', // No demo url for academic projects
+    imageUrl: '/images/projects/short-filmv1.png',
+    category: 'academic'
+  },
+  {
+    id: 7,
+    title: 'Noche Buena (Skusta Clee Parody)',
+    description: "A MTV Spoof of Skusta Clee's Noche Buena. Produced for class requirements.",
+    tags: ['1st Year', 'Filipino', 'Capcut', 'Short Film', 'Video Editor', 'Actor'],
+    githubUrl: '', // No github url for academic projects
+    demoUrl: '', // No demo url for academic projects
+    imageUrl: '/images/projects/mtv-spoofV1.png',
+    category: 'academic'
+  },
+  {
+    id: 8,
+    title: 'Business Stocks and Finance Management System',
+    description: "This is our final presentation on Web Systems and Technologies. We are tasked with making a website with a semi-functional UI using HTML, CSS, and JS. Our website is a management system to help run businesses and manage their stocks and finances. We designed this website for small and big business owners, and we also publish it on GitHub.",
+    tags: ['2nd Year', 'HTML', 'CSS', 'JavaScript'],
+    githubUrl: '', // No github url for academic projects
+    demoUrl: '', // No demo url for academic projects
+    imageUrl: '/images/projects/finalv1.png',
+    category: 'programming'
+  },
+  {
+    id: 9,
+    title: 'School Store Management System',
+    description: "Our final project for IT121 was to make a fully functional system with a UI and database. We use Java and MySQL in our system. Our system this time was to help the school manage the institutes clothing's and school accessories in a system shop style. After all, we succeed in defending our proposal to our instructor, Sir Jerson M. Viagedor.",
+    tags: ['1st Year', 'Java', 'Drag & Drop', 'GUI', 'Netbeans', 'MySQL', 'CRUD'],
+    githubUrl: '', // No github url for academic projects
+    demoUrl: '', // No demo url for academic projects
+    imageUrl: '/images/projects/crudv1.png',
+    category: 'programming'
+  },
+  {
+    id: 10,
+    title: 'Daily Savings Tracker',
+    description: "This project was under the subject of Computer Programming 2, or IT121, and we were tasked with making a GUI design. Our GUI's purpose was a system that will help a person to track their Daily Savings.",
+    tags: ['1st Year', 'Java', 'Drag & Drop', 'GUI', 'Netbeans'],
+    githubUrl: '', // No github url for academic projects
+    demoUrl: '', // No demo url for academic projects
+    imageUrl: '/images/projects/guiv1.png',
+    category: 'programming'
+  },
+  {
+    id: 11,
+    title: 'Cry of Balintawak',
+    description: "SS112 - Reading in Philippine History. Directed and story written by Christial Misal. Final project of RPH. A short dramatic act of the Cry of Balintawak.",
+    tags: ['1st Year', 'Short Film', 'Filipino', 'Video Editor', 'Actor'],
+    githubUrl: '', // No github url for academic projects
+    demoUrl: '', // No demo url for academic projects
+    imageUrl: '/images/projects/short-filmv2.png',
+    category: 'academic'
+  },
 ]
+
+const activeCategory = ref<'programming' | 'academic'>('programming')
+const isGlitching = ref(false)
+const imageErrors = ref<Record<number, boolean>>({})
+
+const toastMessage = ref('')
+const toastActive = ref(false)
+const toastType = ref<'error' | 'warning'>('warning')
+let toastTimeout: any = null
+
+const showToast = (message: string, type: 'error' | 'warning' = 'warning') => {
+  if (toastTimeout) clearTimeout(toastTimeout)
+  toastMessage.value = message
+  toastType.value = type
+  toastActive.value = true
+  toastTimeout = setTimeout(() => {
+    toastActive.value = false
+  }, 3000)
+}
+
+const handleLinkClick = (e: MouseEvent, url: string, type: 'github' | 'demo') => {
+  if (!url) {
+    e.preventDefault()
+    const message = type === 'github'
+      ? 'SYSTEM: No Github Repository'
+      : 'SYSTEM: No Live Demo'
+    showToast(message, 'warning')
+  }
+}
+
+const filterCategory = (category: 'programming' | 'academic') => {
+  if (activeCategory.value === category) return
+  isGlitching.value = true
+  activeCategory.value = category
+  setTimeout(() => {
+    isGlitching.value = false
+  }, 300)
+}
+
+const filteredProjects = computed(() => {
+  return projects.filter(p => p.category === activeCategory.value)
+})
+
+const handleImageError = (id: number) => {
+  imageErrors.value[id] = true
+}
 
 const handleMouseMove = (e: MouseEvent) => {
   const card = e.currentTarget as HTMLElement
@@ -78,38 +200,57 @@ const handleMouseMove = (e: MouseEvent) => {
           </p>
         </div>
 
-        <!-- View All Link (Redirects to GitHub Profile) -->
-        <a
-          href="https://github.com/CodeWithDevi0"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="filter-view-all-btn group"
-        >
-          View All Projects
-          <!-- Right Arrow SVG -->
-          <svg class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
+        <!-- Filter tabs selector -->
+        <div class="filter-tabs">
+          <button 
+            class="filter-tab"
+            :class="{ 'is-active': activeCategory === 'programming' }"
+            @click="filterCategory('programming')"
+          >
+            Programming Projects
+          </button>
+          <button 
+            class="filter-tab"
+            :class="{ 'is-active': activeCategory === 'academic' }"
+            @click="filterCategory('academic')"
+          >
+            Academic Projects
+          </button>
+        </div>
       </div>
 
-      <!-- Projects Grid -->
-      <div class="projects-grid">
-        <div 
-          v-for="(project, index) in projects" 
-          :key="project.id"
-          class="project-card spotlight-card reveal-hidden"
-          :style="{ transitionDelay: `${index * 120}ms` }"
-          @mousemove="handleMouseMove"
-        >
+      <!-- Projects Grid Wrapper (Observer Target) -->
+      <div class="reveal-hidden">
+        <div class="projects-grid" :class="{ 'is-glitching': isGlitching }">
+          <div 
+            v-for="project in filteredProjects" 
+            :key="project.id"
+            class="project-card spotlight-card"
+            @mousemove="handleMouseMove"
+          >
           <!-- Project Preview Image (Easy to replace later) -->
           <div class="project-image-wrapper">
             <img 
+              v-if="!imageErrors[project.id]"
               :src="project.imageUrl" 
               :alt="project.title" 
               class="project-image"
               loading="lazy"
+              @error="handleImageError(project.id)"
             />
+            <div v-else class="project-placeholder-fallback">
+              <!-- Dynamic SVG representation based on category/tags -->
+              <svg v-if="project.tags.includes('IoT') || project.tags.includes('Hardware')" class="fallback-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+              </svg>
+              <svg v-else-if="project.tags.includes('Video Production') || project.tags.includes('Video Editing') || project.tags.includes('Motion Graphics')" class="fallback-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <svg v-else class="fallback-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+              <span class="fallback-text">{{ project.category === 'academic' ? 'Academic Project' : 'Programming Project' }}</span>
+            </div>
           </div>
 
           <!-- Card Content -->
@@ -137,10 +278,12 @@ const handleMouseMove = (e: MouseEvent) => {
             <!-- Links & Actions -->
             <div class="project-actions">
               <a 
-                :href="project.githubUrl" 
-                target="_blank" 
+                :href="project.githubUrl || 'javascript:void(0)'" 
+                :target="project.githubUrl ? '_blank' : '_self'" 
                 rel="noopener noreferrer"
                 class="project-link-github"
+                :class="{ 'is-disabled': !project.githubUrl }"
+                @click="handleLinkClick($event, project.githubUrl, 'github')"
               >
                 <!-- GitHub Icon -->
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -150,10 +293,12 @@ const handleMouseMove = (e: MouseEvent) => {
               </a>
 
               <a 
-                :href="project.demoUrl" 
-                target="_blank" 
+                :href="project.demoUrl || 'javascript:void(0)'" 
+                :target="project.demoUrl ? '_blank' : '_self'" 
                 rel="noopener noreferrer"
                 class="project-link-demo group/demo"
+                :class="{ 'is-disabled': !project.demoUrl }"
+                @click="handleLinkClick($event, project.demoUrl, 'demo')"
               >
                 Live Demo
                 <svg class="demo-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -164,8 +309,22 @@ const handleMouseMove = (e: MouseEvent) => {
           </div>
         </div>
       </div>
+      </div>
 
     </div>
+
+    <!-- Cyber Toast Feedback -->
+    <Transition name="cyber-toast">
+      <div v-if="toastActive" class="cyber-toast" :class="toastType">
+        <div class="cyber-toast-content animate-shake">
+          <svg class="cyber-toast-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <span class="cyber-toast-text">{{ toastMessage }}</span>
+        </div>
+        <div class="cyber-toast-bar"></div>
+      </div>
+    </Transition>
 
     <!-- SVG Wave Separator at the Bottom -->
     <div class="project-wave-wrapper">
