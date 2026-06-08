@@ -83,7 +83,7 @@ const projects: Project[] = [
     tags: ['1st Year', 'Filipino', 'Capcut', 'Short Film', 'Video Editor', 'Actor'],
     githubUrl: '', // No github url for academic projects
     demoUrl: '', // No demo url for academic projects
-    imageUrl: '/images/projects/mtv-spoofV1.png',
+    imageUrl: '/images/projects/mtv-spoof.png',
     category: 'academic'
   },
   {
