@@ -1,3 +1,87 @@
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const roles = ['Web Developer', 'Game Developer'] as const
+const currentRole = ref<string>('Web Developer')
+const isGlitching = ref(false)
+
+const chars = '!<>-_\\/[]{}—=+*^?#________'
+let roleIndex = 0
+let animationFrameId: number | null = null
+let intervalId: any = null
+
+interface QueueItem {
+  from: string
+  to: string
+  start: number
+  end: number
+  char?: string
+}
+
+const scrambleText = (targetText: string) => {
+  let frame = 0
+  const queue: QueueItem[] = []
+  const oldText = currentRole.value
+  const length = Math.max(oldText.length, targetText.length)
+  
+  for (let i = 0; i < length; i++) {
+    const from = oldText.charAt(i)
+    const to = targetText.charAt(i)
+    const start = Math.floor(Math.random() * 10)
+    const end = start + Math.floor(Math.random() * 15)
+    queue.push({ from, to, start, end })
+  }
+  
+  const update = () => {
+    let output = ''
+    let complete = 0
+    
+    for (const item of queue) {
+      if (frame >= item.end) {
+        complete++
+        output += item.to
+      } else if (frame >= item.start) {
+        if (!item.char || Math.random() < 0.28) {
+          item.char = chars.charAt(Math.floor(Math.random() * chars.length))
+        }
+        output += item.char
+      } else {
+        output += item.from
+      }
+    }
+    
+    currentRole.value = output
+    
+    if (complete === queue.length) {
+      isGlitching.value = false
+    } else {
+      frame++
+      animationFrameId = requestAnimationFrame(update)
+    }
+  }
+  
+  if (animationFrameId !== null) {
+    cancelAnimationFrame(animationFrameId)
+  }
+  
+  isGlitching.value = true
+  update()
+}
+
+onMounted(() => {
+  intervalId = setInterval(() => {
+    roleIndex = (roleIndex + 1) % roles.length
+    const nextRole = roles[roleIndex] ?? roles[0]
+    scrambleText(nextRole)
+  }, 4000)
+})
+
+onUnmounted(() => {
+  if (intervalId) clearInterval(intervalId)
+  if (animationFrameId !== null) cancelAnimationFrame(animationFrameId)
+})
+</script>
+
 <template>
   <section class="hero-section">
     
@@ -15,8 +99,6 @@
 
     <div class="hero-content-wrapper">
       
-
-
       <!-- Main Headline -->
       <h1 class="hero-title">
         <span class="hover-flicker block" data-text="Building Modern">Building Modern</span>
@@ -27,33 +109,8 @@
 
       <!-- Subheadline -->
       <p class="hero-subtitle">
-        Hi, I'm <span class="font-semibold text-zinc-900 dark:text-zinc-100">Joseph</span> a.k.a. CodeWithDevi, a 3rd-year BSIT student from DNSC, a Web and Game Developer.
+        Hi, I am <span class="font-semibold text-zinc-900 dark:text-zinc-100">Joseph Claire L. Paquinol</span> a.k.a. <span class="font-semibold text-zinc-900 dark:text-zinc-100">JCentic</span>, a 3rd year BSIT Student from DNSC, a <span class="hero-role-value" :class="{ 'glitch-active': isGlitching }" :data-text="currentRole">{{ currentRole }}</span>.
       </p>
-
-      <!-- CTA Buttons -->
-      <div class="hero-cta-container">
-        
-        <!-- Primary button -->
-        <a 
-          href="#projects" 
-          class="hero-btn-primary group"
-        >
-          View My Work
-          <!-- Right Arrow SVG -->
-          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-
-        <!-- Secondary button -->
-        <a 
-          href="#contact" 
-          class="hero-btn-secondary"
-        >
-          Contact Me
-        </a>
-
-      </div>
 
     </div>
 

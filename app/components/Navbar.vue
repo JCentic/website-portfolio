@@ -24,58 +24,61 @@ const toggleMenu = () => {
         
         <!-- Logo -->
         <div class="shrink-0">
-          <a href="#" class="nav-logo hover-flicker" data-text="CodeWithDevi">
-            CodeWithDevi
+          <a href="#" class="nav-logo hover-flicker" data-text="JCentic">
+            JCentic
           </a>
         </div>
 
-        <!-- Desktop Navigation -->
-        <nav class="nav-desktop-menu">
-          <a 
-            v-for="link in navLinks" 
-            :key="link.name" 
-            :href="link.href" 
-            class="nav-link"
-          >
-            {{ link.name }}
-          </a>
-        </nav>
+        <!-- Right Side: Navigation Links & Controls -->
+        <div class="flex items-center gap-6 md:gap-8">
+          <!-- Desktop Navigation -->
+          <nav class="nav-desktop-menu">
+            <a 
+              v-for="link in navLinks" 
+              :key="link.name" 
+              :href="link.href" 
+              class="nav-link"
+            >
+              {{ link.name }}
+            </a>
+          </nav>
 
-        <!-- Right: Theme Toggle & Hamburger -->
-        <div class="nav-controls">
-          <!-- Theme Toggle Button -->
-          <button 
-            @click="toggleTheme" 
-            type="button"
-            class="theme-btn"
-            aria-label="Toggle theme"
-          >
-            <!-- Sun Icon (shown in dark mode) -->
-            <svg v-if="isDark" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-            </svg>
-            <!-- Moon Icon (shown in light mode) -->
-            <svg v-else class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-            </svg>
-          </button>
+          <!-- Controls: Theme Toggle & Hamburger -->
+          <div class="nav-controls">
+            <!-- Theme Toggle Button -->
+            <button 
+              @click="toggleTheme" 
+              type="button"
+              class="theme-btn"
+              aria-label="Toggle theme"
+            >
+              <!-- Sun Icon (shown in dark mode) -->
+              <svg v-if="isDark" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+              </svg>
+              <!-- Moon Icon (shown in light mode) -->
+              <svg v-else class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </button>
 
-          <!-- Mobile Menu Button -->
-          <button 
-            @click="toggleMenu" 
-            type="button"
-            class="mobile-toggle-btn"
-            aria-label="Toggle navigation menu"
-          >
-            <!-- Open Menu Icon (three bars) -->
-            <svg v-if="!isMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-            <!-- Close Menu Icon (X) -->
-            <svg v-else class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+            <!-- Mobile Menu Button -->
+            <button 
+              @click="toggleMenu" 
+              type="button"
+              class="mobile-toggle-btn"
+              aria-label="Toggle navigation menu"
+            >
+              <!-- Open Menu Icon (three bars) -->
+              <svg v-if="!isMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <!-- Close Menu Icon (X) -->
+              <svg v-else class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
 
       </div>
