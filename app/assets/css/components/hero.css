@@ -81,3 +81,32 @@
 .hero-wave-path {
   @apply fill-zinc-100 dark:fill-zinc-900 transition-colors duration-300;
 }
+
+.hero-role-value {
+  display: inline-block;
+  @apply font-mono font-bold text-zinc-900 dark:text-zinc-50 transition-colors duration-200 border-b border-dashed border-zinc-400 dark:border-zinc-600 px-1;
+}
+
+.hero-role-value.glitch-active {
+  animation: role-glitch 0.25s steps(2) infinite;
+  @apply text-zinc-500 dark:text-zinc-400 border-zinc-500 dark:border-zinc-400;
+  text-shadow: 1px 0 rgba(0,0,0,0.2), -1px 0 rgba(255,255,255,0.4);
+}
+
+.dark .hero-role-value.glitch-active {
+  text-shadow: 1px 0 rgba(255,255,255,0.2), -1px 0 rgba(0,0,0,0.5);
+}
+
+@keyframes role-glitch {
+  0% {
+    transform: translate(1px, -0.5px) skewX(-4deg);
+    letter-spacing: 0.5px;
+  }
+  50% {
+    transform: translate(-1px, 0.5px) skewX(4deg);
+    letter-spacing: -0.5px;
+  }
+  100% {
+    transform: translate(0, 0) skewX(0deg);
+  }
+}

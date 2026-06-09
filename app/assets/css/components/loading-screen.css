@@ -1,0 +1,113 @@
+@reference "../main.css";
+
+.loading-screen {
+  @apply fixed inset-0 flex items-center justify-center z-[100] bg-white dark:bg-zinc-950 transition-colors duration-300;
+  will-change: opacity, transform;
+}
+
+.loading-terminal {
+  @apply w-full max-w-lg mx-4 bg-white/95 dark:bg-zinc-950/95 backdrop-blur-md border border-zinc-200 dark:border-zinc-800/80 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300;
+}
+
+.terminal-header {
+  @apply bg-zinc-100/60 dark:bg-zinc-900/40 border-b border-zinc-200 dark:border-zinc-800/80 px-4 py-3 flex items-center justify-between;
+}
+
+.terminal-dots {
+  @apply flex items-center gap-1.5;
+}
+
+.terminal-dot {
+  @apply w-3 h-3 rounded-full shrink-0;
+}
+
+.dot-red {
+  @apply bg-red-400/80 dark:bg-red-500/60;
+}
+
+.dot-yellow {
+  @apply bg-yellow-400/80 dark:bg-yellow-500/60;
+}
+
+.dot-green {
+  @apply bg-green-400/80 dark:bg-green-500/60;
+}
+
+.terminal-title {
+  @apply text-[10px] font-bold tracking-widest text-zinc-400 dark:text-zinc-500 font-mono;
+}
+
+.terminal-body {
+  @apply p-6 flex flex-col justify-between h-[280px];
+}
+
+.terminal-logs {
+  @apply flex-1 overflow-y-auto space-y-2 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300;
+}
+
+.terminal-log-line {
+  @apply leading-relaxed tracking-wide;
+}
+
+.terminal-cursor-line {
+  @apply flex items-center leading-relaxed;
+}
+
+.terminal-prompt {
+  @apply text-zinc-400 dark:text-zinc-500;
+}
+
+.terminal-cursor {
+  @apply text-zinc-900 dark:text-white animate-pulse;
+}
+
+.loading-progress-container {
+  @apply border-t border-zinc-200/60 dark:border-zinc-800/60 pt-4 mt-auto;
+}
+
+.progress-info {
+  @apply flex items-center justify-between text-[10px] font-bold text-zinc-400 dark:text-zinc-500 mb-2;
+}
+
+.progress-pct, .progress-status {
+  @apply tracking-wider;
+}
+
+.progress-bar-ascii {
+  @apply text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 tracking-widest font-bold select-none;
+}
+
+/* Exit Transition Effects */
+.fade-out-active {
+  @apply opacity-0 pointer-events-none transition-all duration-300 ease-in-out;
+}
+
+.glitch-finish .loading-terminal {
+  animation: preloader-exit-glitch 0.3s steps(2) forwards;
+}
+
+@keyframes preloader-exit-glitch {
+  0% {
+    transform: translate(2px, -2px) skewX(-5deg) scale(1.02);
+    filter: brightness(1.2) contrast(1.1);
+    opacity: 0.9;
+  }
+  30% {
+    transform: translate(-3px, 1px) skewX(5deg) scale(0.98);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translate(1px, -3px) skewX(-2deg) scale(1.01);
+    filter: hue-rotate(90deg);
+    opacity: 0.5;
+  }
+  90% {
+    transform: translate(-1px, 2px) skewX(2deg) scale(0.95);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(0, 0) skewX(0deg) scale(0.9);
+    filter: none;
+    opacity: 0;
+  }
+}
