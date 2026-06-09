@@ -68,6 +68,16 @@ const projects: Project[] = [
   },
   {
     id: 6,
+    title: 'Lakbay Plus',
+    description: 'An Ai Travel Planning Application that will help you Plan your trip.',    
+    tags: ['3rd Year','Top 9 Overall - School Technopreneurship Competition', 'FastAPI', 'VueJs', 'PostgreSQL', 'Neon'],
+    githubUrl: '', // No github url for academic projects
+    demoUrl: '', // No demo url for academic projects
+    imageUrl: '/images/projects/techno.png',
+    category: 'academic'
+  },
+  {
+    id: 7,
     title: 'Blood Drive',
     description: 'A Short Film about a group of spies tasked together on a mission to bring down a certain enemy, only to discover a big secret',    
     tags: ['1st Year', 'English', 'Capcut', 'Short Film', 'Video Editor', 'Actor'],
@@ -77,7 +87,7 @@ const projects: Project[] = [
     category: 'academic'
   },
   {
-    id: 7,
+    id: 8,
     title: 'Noche Buena (Skusta Clee Parody)',
     description: "A MTV Spoof of Skusta Clee's Noche Buena. Produced for class requirements.",
     tags: ['1st Year', 'Filipino', 'Capcut', 'Short Film', 'Video Editor', 'Actor'],
@@ -87,7 +97,7 @@ const projects: Project[] = [
     category: 'academic'
   },
   {
-    id: 8,
+    id: 9,
     title: 'Business Stocks and Finance Management System',
     description: "This is our final presentation on Web Systems and Technologies. We are tasked with making a website with a semi-functional UI using HTML, CSS, and JS. Our website is a management system to help run businesses and manage their stocks and finances. We designed this website for small and big business owners, and we also publish it on GitHub.",
     tags: ['2nd Year', 'HTML', 'CSS', 'JavaScript'],
@@ -97,7 +107,7 @@ const projects: Project[] = [
     category: 'programming'
   },
   {
-    id: 9,
+    id: 10,
     title: 'School Store Management System',
     description: "Our final project for IT121 was to make a fully functional system with a UI and database. We use Java and MySQL in our system. Our system this time was to help the school manage the institutes clothing's and school accessories in a system shop style. After all, we succeed in defending our proposal to our instructor, Sir Jerson M. Viagedor.",
     tags: ['1st Year', 'Java', 'Drag & Drop', 'GUI', 'Netbeans', 'MySQL', 'CRUD'],
@@ -107,7 +117,7 @@ const projects: Project[] = [
     category: 'programming'
   },
   {
-    id: 10,
+    id: 11,
     title: 'Daily Savings Tracker',
     description: "This project was under the subject of Computer Programming 2, or IT121, and we were tasked with making a GUI design. Our GUI's purpose was a system that will help a person to track their Daily Savings.",
     tags: ['1st Year', 'Java', 'Drag & Drop', 'GUI', 'Netbeans'],
@@ -117,7 +127,7 @@ const projects: Project[] = [
     category: 'programming'
   },
   {
-    id: 11,
+    id: 12,
     title: 'Cry of Balintawak',
     description: "SS112 - Reading in Philippine History. Directed and story written by Christial Misal. Final project of RPH. A short dramatic act of the Cry of Balintawak.",
     tags: ['1st Year', 'Short Film', 'Filipino', 'Video Editor', 'Actor'],
