@@ -223,7 +223,6 @@ onUnmounted(() => {
           <div class="inventory-badges">
             <span class="badge">HTML / CSS</span>
             <span class="badge">JavaScript</span>
-            <span class="badge">TypeScript</span>
             <span class="badge">Vue.js</span>
             <span class="badge-highlight">Nuxt 3</span>
             <span class="badge-highlight">Tailwind CSS</span>
