@@ -32,7 +32,7 @@ onMounted(() => {
     <div 
       :class="{ 
         'opacity-0 scale-[0.98] pointer-events-none': isLoading, 
-        'opacity-100 scale-100 transition-all duration-[750ms] ease-out': !isLoading 
+        'opacity-100 scale-100 transition-all duration-750ms ease-out': !isLoading 
       }"
     >
       <Navbar />

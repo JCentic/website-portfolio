@@ -1,7 +1,7 @@
 @reference "../main.css";
 
 .loading-screen {
-  @apply fixed inset-0 flex items-center justify-center z-[100] bg-white dark:bg-zinc-950 transition-colors duration-300;
+  @apply fixed inset-0 flex items-center justify-center z-100 bg-white dark:bg-zinc-950 transition-colors duration-300;
   will-change: opacity, transform;
 }
 
