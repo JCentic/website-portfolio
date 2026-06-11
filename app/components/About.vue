@@ -50,16 +50,16 @@ onUnmounted(() => {
       
       <!-- Section Header -->
       <div class="about-header">
-        <h2 class="about-title hover-flicker" data-text="Profile & Attributes">
-          Profile & Attributes
+        <h2 class="about-title hover-flicker" data-text="About Me">
+          About Me
         </h2>
         <p class="about-subtitle">
-          An overview of my technical stack and development values.
+          An overview about myself.
         </p>
       </div>
 
-      <!-- Bento Grid Container -->
-      <div class="bento-grid">
+      <!-- Bento Grid 1 (About Me) -->
+      <div class="bento-grid mb-20">
         
         <!-- Card 1: Player Description (Bio) - Spans 2 columns -->
         <div class="profile-card spotlight-card reveal-hidden" style="transition-delay: 0ms" @mousemove="handleMouseMove">
@@ -68,95 +68,25 @@ onUnmounted(() => {
               Player Description
             </h3>
             <p class="profile-bio">
-              I am a web developer focused on building modern full-stack web applications. What started as an academic milestone has evolved into a dedicated career path where I design and implement responsive user interfaces alongside robust database systems and secure backends.
+              I am a BSIT student and freelance junior developer focused on building clean, responsive, and functional websites, web apps, and software solutions for both mobile and desktop platforms. I mainly work with FastAPI, PostgreSQL, MySQL, Vue.js, Nuxt 3, HTML, CSS, JavaScript, and Git to create responsive interfaces, interactive dashboards, and basic management systems.
             </p>
             <p class="profile-bio-extra">
-              I treat web engineering like system design in a game: balancing optimal API performance, secure query processing, fluid responsive styling, and agentic engineering workflows to create a seamless user experience.
+              Aside from web and software development, I also create game projects using the Godot Engine, and have experience in database management, data encoding, basic IT troubleshooting, software debugging, and simple hardware repairs for laptops and phones. I am detail-oriented, willing to learn, and focused on creating useful technology solutions.
             </p>
+          </div>
 
-            <!-- Core Engineering Areas -->
-            <div class="core-areas-grid">
-              
-              <!-- Area 1: Backend Engineering -->
-              <div class="core-area-item">
-                <div class="core-area-icon-wrapper">
-                  <!-- Server/API SVG icon -->
-                  <svg class="core-area-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="core-area-title">Backend Engineering</h4>
-                  <p class="core-area-desc">
-                    Designing scalable REST APIs, secure routing, and database pooling configurations using FastAPI and Python.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Area 2: Database Architecture -->
-              <div class="core-area-item">
-                <div class="core-area-icon-wrapper">
-                  <!-- Database Stack SVG icon -->
-                  <svg class="core-area-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="core-area-title">Database Architecture</h4>
-                  <p class="core-area-desc">
-                    Structuring relational schemas, writing optimized SQL queries, and managing migrations in PostgreSQL and MySQL.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Area 3: Frontend Development -->
-              <div class="core-area-item">
-                <div class="core-area-icon-wrapper">
-                  <!-- Code brackets SVG icon -->
-                  <svg class="core-area-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="core-area-title">Frontend Development</h4>
-                  <p class="core-area-desc">
-                    Building component-driven layouts, reactive states, and responsive interface styling using Vue.js and Nuxt.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Area 4: Deployment & CI/CD -->
-              <div class="core-area-item">
-                <div class="core-area-icon-wrapper">
-                  <!-- Cloud Upload SVG icon -->
-                  <svg class="core-area-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="core-area-title">Deployment & CI/CD</h4>
-                  <p class="core-area-desc">
-                    Configuring automated Git-flow integrations, serverless distribution, and hosting setups on Vercel and Render.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Area 5: Agentic Engineering -->
-              <div class="core-area-item sm:col-span-2">
-                <div class="core-area-icon-wrapper">
-                  <!-- AI / Robot / Intelligence SVG icon -->
-                  <svg class="core-area-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 class="core-area-title">Agentic Engineering</h4>
-                  <p class="core-area-desc">
-                    Utilizing structured agentic workflows, intent-first prompt schemas, and isolated context sessions to build clean, predictable codebases.
-                  </p>
-                </div>
-              </div>
-
+          <div class="hud-panel">
+            <div>
+              <span class="hud-label">Location</span>
+              <span class="hud-val">Davao del Norte, Philippines</span>
+            </div>
+            <div>
+              <span class="hud-label">Education</span>
+              <span class="hud-val">BSIT (DNSC)</span>
+            </div>
+            <div>
+              <span class="hud-label">Availability</span>
+              <span class="hud-val">Freelance & Internships</span>
             </div>
           </div>
         </div>
@@ -210,6 +140,21 @@ onUnmounted(() => {
           </div>
         </div>
 
+      </div>
+
+      <!-- Section Header: My Tech Stack -->
+      <div class="about-header">
+        <h2 class="about-title hover-flicker" data-text="My Tech Stack">
+          My Tech Stack
+        </h2>
+        <p class="about-subtitle">
+          Tools, languages, and frameworks in my inventory.
+        </p>
+      </div>
+
+      <!-- Bento Grid 2 (My Tech Stack) -->
+      <div class="bento-grid mb-20">
+
         <!-- Card 3: Frontend Inventory - Spans 1 column -->
         <div class="inventory-card spotlight-card reveal-hidden" style="transition-delay: 200ms" @mousemove="handleMouseMove">
           <div>
@@ -248,7 +193,7 @@ onUnmounted(() => {
             <span class="badge">PostgreSQL</span>
             <span class="badge">MySQL</span>
             <span class="badge">SQLite</span>
-            <span class="badge">NodeJS</span>
+            <span class="badge-highlight">NodeJS</span>
           </div>
         </div>
 
@@ -271,6 +216,21 @@ onUnmounted(() => {
             <span class="badge">Godot Engine</span>
           </div>
         </div>
+
+      </div>
+
+      <!-- Section Header: Currently Learning -->
+      <div class="about-header">
+        <h2 class="about-title hover-flicker" data-text="Currently Learning">
+          Currently Learning
+        </h2>
+        <p class="about-subtitle">
+          Technologies and development methodologies I am actively exploring.
+        </p>
+      </div>
+
+      <!-- Bento Grid 3 (Currently Learning) -->
+      <div class="bento-grid">
 
         <!-- Card 6: Active Quests - Spans 3 columns -->
         <div class="quests-card spotlight-card reveal-hidden" style="transition-delay: 500ms" @mousemove="handleMouseMove">
