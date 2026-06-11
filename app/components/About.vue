@@ -71,7 +71,7 @@ onUnmounted(() => {
               I am a BSIT student and freelance junior developer focused on building clean, responsive, and functional websites, web apps, and software solutions for both mobile and desktop platforms. I mainly work with FastAPI, PostgreSQL, MySQL, Vue.js, Nuxt 3, HTML, CSS, JavaScript, and Git to create responsive interfaces, interactive dashboards, and basic management systems.
             </p>
             <p class="profile-bio-extra">
-              Aside from web and software development, I also create game projects using the Godot Engine, and have experience in database management, data encoding, basic IT troubleshooting, software debugging, and simple hardware repairs for laptops and phones. I am detail-oriented, willing to learn, and focused on creating useful technology solutions.
+              Outside of web development, I build game projects with the Godot Engine, set up and manage databases, and help plan how systems are structured. I also focus on finding and fixing code bugs, writing clear documentation, and troubleshooting IT issues to make sure everything works correctly.
             </p>
           </div>
 
