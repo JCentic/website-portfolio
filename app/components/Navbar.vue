@@ -1,111 +1,196 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useTheme } from '~/composables/useTheme'
 
 const { isDark, toggleTheme } = useTheme()
-const isMenuOpen = ref(false)
+const activeSection = ref('home')
 
-const navLinks = [
-  { name: 'Home', href: '#' },
-  { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' }
-]
+const handleScroll = () => {
+  if (typeof window === 'undefined') return
+  
+  const sections = ['home', 'about', 'projects', 'contact']
+  const scrollPosition = window.scrollY + window.innerHeight / 3
 
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value
+  for (const section of sections) {
+    const el = document.getElementById(section)
+    if (el) {
+      const top = el.offsetTop
+      const height = el.offsetHeight
+      if (scrollPosition >= top && scrollPosition < top + height) {
+        activeSection.value = section
+        break
+      }
+    }
+  }
 }
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+  }
+})
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('scroll', handleScroll)
+  }
+})
 </script>
 
 <template>
-  <header class="nav-header">
-    <div class="nav-container">
-      <div class="nav-row">
-        
-        <!-- Logo -->
-        <div class="shrink-0">
-          <a href="#" class="nav-logo hover-flicker" data-text="JCentic">
-            JCentic
-          </a>
-        </div>
+  <div>
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="nav-mobile-bottom">
+      <!-- Home Link -->
+      <a 
+        href="#home" 
+        class="nav-mobile-link" 
+        :class="{ 'is-active': activeSection === 'home' }"
+        aria-label="Home"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      </a>
 
-        <!-- Right Side: Navigation Links & Controls -->
-        <div class="flex items-center gap-6 md:gap-8">
-          <!-- Desktop Navigation -->
-          <nav class="nav-desktop-menu">
-            <a 
-              v-for="link in navLinks" 
-              :key="link.name" 
-              :href="link.href" 
-              class="nav-link"
-            >
-              {{ link.name }}
-            </a>
-          </nav>
+      <!-- About Link -->
+      <a 
+        href="#about" 
+        class="nav-mobile-link" 
+        :class="{ 'is-active': activeSection === 'about' }"
+        aria-label="About Me"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      </a>
 
-          <!-- Controls: Theme Toggle & Hamburger -->
-          <div class="nav-controls">
-            <!-- Theme Toggle Button -->
-            <button 
-              @click="toggleTheme" 
-              type="button"
-              class="theme-btn"
-              aria-label="Toggle theme"
-            >
-              <!-- Sun Icon (shown in dark mode) -->
-              <svg v-if="isDark" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-              </svg>
-              <!-- Moon Icon (shown in light mode) -->
-              <svg v-else class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-              </svg>
-            </button>
+      <!-- Projects Link -->
+      <a 
+        href="#projects" 
+        class="nav-mobile-link" 
+        :class="{ 'is-active': activeSection === 'projects' }"
+        aria-label="Projects"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      </a>
 
-            <!-- Mobile Menu Button -->
-            <button 
-              @click="toggleMenu" 
-              type="button"
-              class="mobile-toggle-btn"
-              aria-label="Toggle navigation menu"
-            >
-              <!-- Open Menu Icon (three bars) -->
-              <svg v-if="!isMenuOpen" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              <!-- Close Menu Icon (X) -->
-              <svg v-else class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
+      <!-- Contact Link -->
+      <a 
+        href="#contact" 
+        class="nav-mobile-link" 
+        :class="{ 'is-active': activeSection === 'contact' }"
+        aria-label="Contact"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </a>
 
-      </div>
+      <div class="nav-mobile-divider"></div>
+
+      <!-- Theme Toggle Link -->
+      <button 
+        @click="toggleTheme" 
+        type="button"
+        class="nav-mobile-theme-btn"
+        aria-label="Toggle theme"
+      >
+        <svg v-if="isDark" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+        </svg>
+        <svg v-else class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
     </div>
 
-    <!-- Mobile Navigation Menu -->
-    <transition
-      enter-active-class="transition duration-200 ease-out"
-      enter-from-class="transform -translate-y-4 opacity-0"
-      enter-to-class="transform translate-y-0 opacity-100"
-      leave-active-class="transition duration-150 ease-in"
-      leave-from-class="transform translate-y-0 opacity-100"
-      leave-to-class="transform -translate-y-4 opacity-0"
-    >
-      <div v-show="isMenuOpen" class="mobile-menu">
+    <!-- Desktop Side Floating Navigation Bar -->
+    <div class="nav-side-floating">
+      <!-- Logo/Brand at the top -->
+      <a href="#home" class="nav-side-logo hover-flicker" data-text="JCentic">
+        <span class="logo-short">JC</span><span class="logo-full">entic</span>
+      </a>
+      
+      <div class="nav-side-divider"></div>
+      
+      <!-- Vertical Navigation Links -->
+      <nav class="nav-side-menu">
+        <!-- Home Link -->
         <a 
-          v-for="link in navLinks" 
-          :key="link.name" 
-          :href="link.href" 
-          @click="isMenuOpen = false"
-          class="mobile-nav-link"
+          href="#home" 
+          class="nav-side-link" 
+          :class="{ 'is-active': activeSection === 'home' }"
+          aria-label="Home"
         >
-          {{ link.name }}
+          <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+          <span class="nav-side-label">Home</span>
         </a>
-      </div>
-    </transition>
-  </header>
+
+        <!-- About Link -->
+        <a 
+          href="#about" 
+          class="nav-side-link" 
+          :class="{ 'is-active': activeSection === 'about' }"
+          aria-label="About Me"
+        >
+          <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <span class="nav-side-label">About</span>
+        </a>
+
+        <!-- Projects Link -->
+        <a 
+          href="#projects" 
+          class="nav-side-link" 
+          :class="{ 'is-active': activeSection === 'projects' }"
+          aria-label="Projects"
+        >
+          <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+          <span class="nav-side-label">Projects</span>
+        </a>
+
+        <!-- Contact Link -->
+        <a 
+          href="#contact" 
+          class="nav-side-link" 
+          :class="{ 'is-active': activeSection === 'contact' }"
+          aria-label="Contact"
+        >
+          <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <span class="nav-side-label">Contact</span>
+        </a>
+      </nav>
+      
+      <div class="nav-side-divider"></div>
+      
+      <!-- Theme Toggle at the bottom -->
+      <button 
+        @click="toggleTheme" 
+        type="button"
+        class="nav-side-theme-btn"
+        aria-label="Toggle theme"
+      >
+        <svg v-if="isDark" class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+        </svg>
+        <svg v-else class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <span class="theme-label">{{ isDark ? 'Light' : 'Dark' }}</span>
+      </button>
+    </div>
+  </div>
 </template>
 
 <style scoped src="../assets/css/components/navbar.css"></style>
