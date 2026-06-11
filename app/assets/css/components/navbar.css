@@ -1,45 +1,115 @@
 @reference "../main.css";
 
-.nav-header {
-  @apply sticky top-0 z-50 w-full backdrop-blur-md bg-white/70 dark:bg-zinc-950/70 border-b border-zinc-200/40 dark:border-zinc-800/40 transition-colors duration-300;
+/* ==========================================
+   Mobile Bottom Navigation (Floating Dock)
+   ========================================== */
+.nav-mobile-bottom {
+  @apply fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 p-1.5 bg-zinc-100/95 dark:bg-zinc-900/80 backdrop-blur-md border border-zinc-200/60 dark:border-zinc-800/60 rounded-full shadow-lg transition-colors duration-300 max-w-[90vw] w-max;
 }
 
-.nav-container {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+@media (min-width: 768px) {
+  .nav-mobile-bottom {
+    display: none !important;
+  }
 }
 
-.nav-row {
-  @apply flex items-center justify-between h-16;
+.nav-mobile-link {
+  @apply w-11 h-11 rounded-full flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 cursor-pointer border border-transparent;
 }
 
-.nav-logo {
-  @apply text-xl font-black tracking-tight bg-linear-to-r from-zinc-900 to-zinc-500 dark:from-white dark:to-zinc-400 bg-clip-text text-transparent hover:opacity-90 transition-opacity;
+.nav-mobile-link.is-active {
+  @apply bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white border-zinc-200/60 dark:border-zinc-800/60 shadow-sm;
 }
 
-.nav-desktop-menu {
-  @apply hidden md:flex items-center space-x-8;
+.nav-mobile-divider {
+  @apply w-[1px] h-6 bg-zinc-200 dark:bg-zinc-800/80 mx-1;
 }
 
-.nav-link {
-  @apply text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white transition-colors duration-200;
+.nav-mobile-theme-btn {
+  @apply w-11 h-11 rounded-full bg-white dark:bg-zinc-950 border border-zinc-200/60 dark:border-zinc-800/60 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white active:scale-95 transition-all duration-200;
 }
 
-.nav-controls {
-  @apply flex items-center space-x-4;
+
+/* ==========================================
+   Desktop Side Navigation (Floating Dock)
+   ========================================== */
+.nav-side-floating {
+  @apply fixed left-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4 p-2 bg-zinc-100/80 dark:bg-zinc-900/40 backdrop-blur-md border border-zinc-200/60 dark:border-zinc-800/60 rounded-3xl shadow-xl shadow-zinc-500/5 dark:shadow-black/25 transition-all duration-300 w-14;
+  display: none !important;
 }
 
-.theme-btn {
-  @apply p-2.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white focus:outline-none transition-all duration-300 transform active:scale-95;
+@media (min-width: 768px) {
+  .nav-side-floating {
+    display: flex !important;
+  }
+  
+  .nav-side-floating:hover {
+    @apply w-40 p-3 items-stretch;
+  }
 }
 
-.mobile-toggle-btn {
-  @apply md:hidden p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-800 focus:outline-none transition-all duration-200;
+.nav-side-logo {
+  @apply w-10 h-10 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/60 dark:border-zinc-800/60 flex items-center justify-center font-black text-sm tracking-tighter text-zinc-900 dark:text-white hover:scale-[1.02] active:scale-98 transition-all duration-300 select-none overflow-hidden shrink-0;
 }
 
-.mobile-menu {
-  @apply md:hidden border-t border-zinc-200/50 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 pt-2 pb-4 space-y-1 shadow-lg transition-colors duration-300;
+.nav-side-floating:hover .nav-side-logo {
+  @apply w-full justify-start px-3 gap-0.5;
 }
 
-.mobile-nav-link {
-  @apply block px-3 py-2.5 rounded-lg text-base font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-all duration-200;
+.logo-full {
+  @apply max-w-0 opacity-0 transition-all duration-300 ease-out inline-block overflow-hidden whitespace-nowrap;
+}
+
+.nav-side-floating:hover .logo-full {
+  @apply max-w-[80px] opacity-100;
+}
+
+.nav-side-divider {
+  @apply h-[1px] bg-zinc-200 dark:bg-zinc-800/80 transition-all duration-300 w-6 self-center;
+}
+
+.nav-side-floating:hover .nav-side-divider {
+  @apply w-full;
+}
+
+.nav-side-menu {
+  @apply flex flex-col gap-2;
+}
+
+.nav-side-link {
+  @apply relative w-10 h-10 rounded-2xl flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-300 cursor-pointer select-none border border-transparent shrink-0 overflow-hidden;
+}
+
+.nav-side-link.is-active {
+  @apply bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white border-zinc-200/60 dark:border-zinc-800/60 shadow-sm;
+}
+
+.nav-side-floating:hover .nav-side-link {
+  @apply w-full justify-start px-3 gap-3;
+}
+
+/* Inline Labels on Hover */
+.nav-side-label {
+  @apply max-w-0 opacity-0 transition-all duration-300 ease-out inline-block overflow-hidden whitespace-nowrap text-xs font-bold tracking-wide uppercase;
+}
+
+.nav-side-floating:hover .nav-side-label {
+  @apply max-w-[80px] opacity-100;
+}
+
+.nav-side-theme-btn {
+  @apply w-10 h-10 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/60 dark:border-zinc-800/60 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-[1.02] active:scale-98 transition-all duration-300 shrink-0 overflow-hidden;
+}
+
+.nav-side-floating:hover .nav-side-theme-btn {
+  @apply w-full justify-start px-3 gap-3;
+}
+
+/* Theme Toggle Label */
+.theme-label {
+  @apply max-w-0 opacity-0 transition-all duration-300 ease-out inline-block overflow-hidden whitespace-nowrap text-xs font-bold tracking-wide uppercase;
+}
+
+.nav-side-floating:hover .theme-label {
+  @apply max-w-[80px] opacity-100;
 }

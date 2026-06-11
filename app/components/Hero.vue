@@ -83,7 +83,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="hero-section">
+  <section id="home" class="hero-section">
     
     <!-- Animated background grid -->
     <div class="hero-background-grid"></div>
