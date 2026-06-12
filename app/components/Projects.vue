@@ -21,7 +21,7 @@ const projects: Project[] = [
     title: 'CyberMorph (Capstone)',
     description: 'An AI-powered cybersecurity simulation mobile game designed for interactive security training, featuring cloud integration and dynamic network topologies.',
     tags: ['3rd Year', 'Vue.js', 'FastAPI', 'PostgreSQL', 'SQLAlchemy', 'Godot', 'Render', 'Vercel', 'PostgreSQL', 'Neon', 'Reinforcement Learning'],
-    githubUrl: 'https://github.com/CodeWithDevi0',
+    githubUrl: 'https://github.com/JCentic',
     demoUrl: 'https://cyber-morph-portal.vercel.app/',
     imageUrl: '/images/projects/cybermorph.png',
     category: 'programming'
@@ -31,7 +31,7 @@ const projects: Project[] = [
     title: 'Sari-sari Store Management System',
     description: 'An application I created to help local stores track inventory, daily sales, and print receipts.',
     tags: ['3rd Year', 'React-Native', 'React-Expo', 'Tailwind CSS', 'JavaScript', 'SQLite', 'Self Project'],
-    githubUrl: 'https://github.com/CodeWithDevi0/store-management',
+    githubUrl: 'https://github.com/JCentic/store-management',
     demoUrl: '',
     imageUrl: '/images/projects/store-management.png',
     category: 'programming'
@@ -51,7 +51,7 @@ const projects: Project[] = [
     title: 'PEasy Builder',
     description: 'A custom PC builder web application that lets users select components, check part compatibility, and shop for parts.',
     tags: ['2nd Year', 'PHP', 'JavaScript', 'CSS', 'XAMPP', 'MySQL'],
-    githubUrl: 'https://github.com/CodeWithDevi0/PeasyShopBuilder',
+    githubUrl: 'https://github.com/JCentic/PeasyShopBuilder',
     demoUrl: '',
     imageUrl: '/images/projects/peasy-builder.png',
     category: 'programming'
