@@ -170,8 +170,6 @@ onUnmounted(() => {
             <span class="badge">JavaScript</span>
             <span class="badge">Vue.js</span>
             <span class="badge-highlight">Nuxt 3</span>
-            <span class="badge-highlight">Tailwind CSS</span>
-            <span class="badge-highlight">React Native</span>
           </div>
         </div>
 
@@ -188,12 +186,9 @@ onUnmounted(() => {
           <div class="inventory-badges">
             <span class="badge">Python</span>
             <span class="badge">FastAPI</span>
-            <span class="badge">PHP</span>
-            <span class="badge">Laravel</span>
             <span class="badge">PostgreSQL</span>
             <span class="badge">MySQL</span>
             <span class="badge">SQLite</span>
-            <span class="badge-highlight">NodeJS</span>
           </div>
         </div>
 
@@ -210,10 +205,9 @@ onUnmounted(() => {
           <div class="inventory-badges">
             <span class="badge">Git / GitHub</span>
             <span class="badge">Vercel</span>
-            <span class="badge">Neon DB</span>
+            <span class="badge">Neon</span>
             <span class="badge">Render</span>
             <span class="badge">VS Code</span>
-            <span class="badge">Godot Engine</span>
           </div>
         </div>
 
