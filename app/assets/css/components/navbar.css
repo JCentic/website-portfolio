@@ -22,7 +22,7 @@
 }
 
 .nav-mobile-divider {
-  @apply w-1px h-6 bg-zinc-200 dark:bg-zinc-800/80 mx-1;
+  @apply w-px h-6 bg-zinc-200 dark:bg-zinc-800/80 mx-1;
 }
 
 .nav-mobile-theme-btn {
@@ -65,7 +65,7 @@
 }
 
 .nav-side-divider {
-  @apply h-1px bg-zinc-200 dark:bg-zinc-800/80 transition-all duration-300 w-6 self-center;
+  @apply h-px bg-zinc-200 dark:bg-zinc-800/80 transition-all duration-300 w-6 self-center;
 }
 
 .nav-side-floating:hover .nav-side-divider {
